@@ -2,18 +2,18 @@
 
 JSON で盤面ゲームを定義すると、共通 UI、ルールエンジン、局面分析、Arena、そして `Minimax / MCTS / Genome AI` までそのまま立ち上がるフレームワークです。
 
-今回の版では、単に「ルールを読んで対戦できる」だけでなく、**自己対戦で作った学習済みブックを同梱したハイブリッド AI 基盤**まで含めました。小規模なゲームエンジン集ではなく、**派生 repo を継続的に増やすための母体**として見せることを狙っています。
+この版では、単なる「グリッドに駒を置く小さな DSL」から一段広げて、**masked board・named zone・接続勝利・目標到達・エリア占有**まで扱えるようにしました。派生 repo を量産しやすい母体として、どこまで一般化し、どこをまだ切っているかが説明しやすい構成を狙っています。
 
-## この版で強くした点
+## この版で広がった点
 
-- `Genome AI` を追加し、学習済みブックと探索を併用できるようにした
-- `artifacts/learning/*.book.json` に自己対戦アセットを同梱した
-- `scripts/train:self-play` / `scripts/train:bundle` で再学習できるようにした
-- `scripts/validate-learning.js` と `docs/training-report.md` を追加した
-- Insights パネルで Learned 候補と book hit / miss を見える化した
-- Arena でも `Genome AI` を比較対象として回せるようにした
-
-「学習済み」といっても、ニューラルネットを重く回す構成ではありません。**自己対戦で得た state-action 統計をブック化し、既知局面ではそれを優先し、未知局面では Minimax / MCTS に戻す**方針です。就活用ポートフォリオとしては、説明しやすさと再現性を優先しています。
+- `board.disabledCells` で欠けた盤面を表現できる
+- `board.zones` で named zone を持てる
+- `place` に `zone` 制約を付けられる
+- `reach-zone` / `occupy-zone` / `connect-zones` を終局条件に追加した
+- `repetition` draw を追加し、循環局面を明示的に打ち切れるようにした
+- 評価関数に `zonePressure` / `connectionPressure` を追加した
+- UI 上で blocked cell と zone cell を可視化した
+- Studio テンプレートと scaffold CLI から zone / connection 系ゲームを始められる
 
 ## 何ができるか
 
@@ -31,7 +31,7 @@ JSON で盤面ゲームを定義すると、共通 UI、ルールエンジン、
 - Definition Health Check で完成度の弱点を確認できる
 - プレビュー適用、ローカル保存、スナップショット保存 / 復元ができる
 - JSON import / export、共有リンク作成ができる
-- スターターテンプレートから派生ゲームを作り始められる
+- `connection` / `zone-objective` を含むスターターテンプレートから派生ゲームを作り始められる
 
 ### Arena
 - 現在の定義で AI 同士をまとめて対戦させられる
@@ -41,23 +41,44 @@ JSON で盤面ゲームを定義すると、共通 UI、ルールエンジン、
 
 ### Learning bundle
 - 自己対戦で生成した学習済みブックを同梱している
-- `Genome AI` は book hit が十分強い局面ではブックを採用し、足りない局面では探索に戻る
-- `scripts/train-self-play.js` で 1 ゲームだけ再生成できる
-- `scripts/train-learning-bundle.js` で学習バンドル一式を再生成できる
-- `docs/training-report.md` で生成条件を後追いできる
+- `Genome AI` は book hit が十分強い局面では学習済み手を使い、足りない局面では探索に戻る
+- zone / connection 系の新サンプルは book 未同梱だが、その場合も `Genome AI` は探索へフォールバックする
 
-## 同梱している学習済みアセット
+## サポートしている DSL の範囲
 
-現在は次の 6 ゲームに自己対戦ブックを付けています。今回の版では single-seed の軽い学習ではなく、**multi-seed self-play** に切り替えて総学習量を大きく増やしました。
+### board
+- `width`, `height`
+- `disabledCells`
+- `zones`
 
-- `tic-tac-toe`: 1800 episodes / 259 states / 14931 decision samples
-- `connect-four`: 75 episodes / 1537 states / 1954 decision samples
-- `lane-breakthrough`: 1200 episodes / 1281 states / 19003 decision samples
-- `knight-skirmish`: 360 episodes / 1260 states / 11043 decision samples
-- `royal-duel`: 750 episodes / 2258 states / 9295 decision samples
-- `relay-outpost`: 300 episodes / 2042 states / 5071 decision samples
+### actionCatalog
+- `place`
+  - `empty`
+  - `gravity`
+  - `row-zone`
+  - `column-zone`
+  - `cell-whitelist`
+  - `zone`
+- `move-piece`
 
-合計では **4485 episodes / 8637 retained states / 61297 decision samples** です。生成条件の詳細は `docs/training-report.md` を見れば追えます。
+### movement
+- `step`
+- `ray`
+- `orientation: forward`
+- `mode: move / capture / move-or-capture`
+
+### termination
+- `line`
+- `capture-all`
+- `reach-row`
+- `reach-zone`
+- `occupy-zone`
+- `connect-zones`
+- `opponent-has-no-legal-moves`
+- `board-full`
+- `move-limit`
+- `no-legal-moves`
+- `repetition`
 
 ## 同梱サンプルゲーム
 
@@ -78,6 +99,28 @@ JSON で盤面ゲームを定義すると、共通 UI、ルールエンジン、
 
 ### Relay Outpost
 配置と移動を毎手で選ぶ混成ルールです。`inventory`、`row-zone`、`line`、`reach-row`、`capture-all` を同時に確認できます。
+
+### Bridge Link
+欠けた盤面と named zone を使う接続ゲームです。`connect-zones` と `connectionPressure` の実例です。
+
+### Sanctum Duel
+四隅を欠いた盤面で中央の sanctum を奪い合う小型対局です。`reach-zone` と `repetition` の実例です。
+
+### Ring Control
+中央リングの支配を競うエリア制圧ゲームです。`occupy-zone` と `zonePressure` の実例です。
+
+## 同梱している学習済みアセット
+
+現在は次の 6 ゲームに自己対戦ブックを付けています。
+
+- `tic-tac-toe`
+- `connect-four`
+- `lane-breakthrough`
+- `knight-skirmish`
+- `royal-duel`
+- `relay-outpost`
+
+詳細は `docs/training-report.md` を参照してください。
 
 ## ディレクトリ構成
 
@@ -139,103 +182,41 @@ npm run validate:learning
 npm run check
 ```
 
-### カタログレポート再生成
-
-```bash
-npm run catalog:report
-```
-
-### 学習レポート再生成
-
-```bash
-npm run training:report
-```
-
-### 単体再学習
-
-```bash
-npm run train:self-play -- --game lane-breakthrough
-```
-
-### 学習バンドル再生成
-
-```bash
-npm run train:bundle
-npm run training:report
-```
-
-### 高学習量バンドル再生成
-
-```bash
-npm run train:bundle:max
-npm run training:report
-```
-
 ### 新規ゲームのひな形作成
 
 ```bash
-npm run scaffold:game -- --id my-game --name "My Game" --template movement --register
+npm run scaffold:game -- --id my-game --name "My Game" --template connection --register
 ```
 
-テンプレートは `placement`, `movement`, `duel` の 3 種類です。
+テンプレートは `placement`, `movement`, `duel`, `connection`, `zone-objective` の 5 種類です。
 
-## Studio の使い方
+## この repo の見どころ
 
-1. 既存ゲームを選ぶ
-2. 必要ならスターターテンプレートを読み込む
-3. JSON を編集する
-4. `検証` でエラーと警告を見る
-5. Health Check で弱い箇所を確認する
-6. `プレビュー適用` で盤面と AI に反映する
-7. 必要なら `局面分析` で Minimax / MCTS / Learned 候補を見比べる
-8. 良ければ `ローカル保存` する
-9. 編集途中は `スナップショット保存` で残す
+### 1. 盤面の形状と目的を JSON 側で持てる
+`disabledCells` と `zones` を導入したことで、「矩形の中でただ置く / 動かす」だけでなく、**地形を持つ盤面**と**意味のある目標エリア**を定義で扱えるようにしています。
 
-## 技術的な見どころ
+### 2. ルール DSL を広げても UI と AI を崩していない
+新しい勝利条件を足しても、共通 UI、局面分析、Arena、Studio の導線はそのまま維持しています。JSON を差し替えたときの再利用性を優先しています。
 
-### 1. JSON から UI / Engine / AI を一貫して再利用
-ゲーム固有ロジックを `games/*.json` に寄せ、UI、ログ、探索、Arena、学習アセットの読み込みを共通化しています。
+### 3. 探索だけでなく学習済みアセットも repo に含めている
+`Genome AI` は book hit がある局面では学習済み手を使い、ない局面では探索に戻ります。学習成果物を配布物として切り出しているので、派生 repo にも持ち出しやすいです。
 
-### 2. 学習済みブックと探索のハイブリッド
-`Genome AI` は book hit が十分強い局面では学習済み手を使い、そうでない局面は Minimax / MCTS へ戻します。検索エンジンを捨てずに学習の効果を見せられる構成です。
-
-### 3. 学習アセットのフォーマットを分離
-`artifacts/learning/*.book.json` を UI から独立した配布物として持たせています。ゲーム定義、探索コード、学習成果物の責務が分かれているので、派生 repo にも切り出しやすいです。
-
-### 4. 作る人の導線まで含めた設計
-編集、検証、プレビュー、比較、保存、共有、再学習までを 1 本の repo で回せるようにしています。デモではなく、作業基盤としての説得力を出す方向です。
+### 4. 作る人の導線まで同じ repo に入れている
+編集、検証、プレビュー、比較、保存、共有、再学習までを 1 本の repo で回せます。デモではなく、**派生作品を増やすための母艦**として使う前提です。
 
 ## 既知の制約
 
 - 2 人完全情報・決定論ゲーム向け
-- グリッド盤面前提
-- 持ち駒、ドロップ、昇格は未対応
-- 反復局面の厳密判定は未対応
+- 盤面は「任意グラフ」ではなく **masked rectangular grid** 前提
+- 持ち駒、ドロップ、昇格、多段行動、同一ターン中の連続手は未対応
+- 強制捕獲、チェック判定、反則負けなどの高度な裁定は未対応
 - Web Worker 化は未対応なので、重い探索はメインスレッドで走る
 - 学習済みアセットは統計ブック方式であり、ニューラルネット評価器ではない
-- 対称局面の圧縮はまだ入れていない
 
 ## 今後の発展案
 
-- book 生成時の対称局面圧縮
-- 学習バンドルの差分比較レポート
-- Arena から再学習対象局面を抽出する機能
-- Web Worker 化による探索分離
-- 反復局面検知
-- 量子将棋向けの測定・重ね合わせ拡張
-
-## ドキュメント
-
-- `docs/architecture.md`
-- `docs/game-definition.md`
-- `docs/studio.md`
-- `docs/arena.md`
-- `docs/cli.md`
-- `docs/ai-notes.md`
-- `docs/learning.md`
-- `docs/design-decisions.md`
-- `docs/catalog-report.md`
-- `docs/training-report.md`
-- `docs/github-publish.md`
-- `docs/product-positioning.md`
-- `docs/release-checklist.md`
+- 任意グラフ盤面への一般化
+- 移動パターンの条件分岐と multi-step action
+- 強制捕獲や特殊ルールの action filter
+- 対称局面圧縮を含む学習アセット最適化
+- Web Worker 化と large-board 用の探索分離

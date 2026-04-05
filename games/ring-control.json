@@ -1,0 +1,98 @@
+{
+  "id": "ring-control",
+  "name": "Ring Control",
+  "description": "中央リングの 4 マスのうち 2 マスを自分の guard で占有すると勝つエリア制圧ゲーム。occupy-zone の最小例。",
+  "board": {
+    "width": 5,
+    "height": 5,
+    "zones": {
+      "ring": {
+        "label": "Control ring",
+        "cells": [
+          { "x": 2, "y": 1 },
+          { "x": 1, "y": 2 },
+          { "x": 3, "y": 2 },
+          { "x": 2, "y": 3 }
+        ]
+      }
+    }
+  },
+  "players": [
+    { "id": "P1", "name": "Blue", "forward": 1 },
+    { "id": "P2", "name": "Orange", "forward": -1 }
+  ],
+  "turnOrder": ["P1", "P2"],
+  "pieceKinds": {
+    "guard": {
+      "label": "Guard",
+      "shortLabel": "Guard",
+      "symbolByPlayer": {
+        "P1": "▲",
+        "P2": "▼"
+      },
+      "movement": [
+        {
+          "type": "step",
+          "mode": "move-or-capture",
+          "vectors": [[1, 0], [-1, 0], [0, 1], [0, -1]]
+        }
+      ],
+      "evaluation": { "value": 4 }
+    }
+  },
+  "actionCatalog": [
+    {
+      "type": "move-piece",
+      "pieceKinds": ["guard"]
+    }
+  ],
+  "initialState": {
+    "pieces": [
+      { "kind": "guard", "owner": "P1", "x": 1, "y": 0 },
+      { "kind": "guard", "owner": "P1", "x": 2, "y": 0 },
+      { "kind": "guard", "owner": "P1", "x": 3, "y": 0 },
+      { "kind": "guard", "owner": "P2", "x": 1, "y": 4 },
+      { "kind": "guard", "owner": "P2", "x": 2, "y": 4 },
+      { "kind": "guard", "owner": "P2", "x": 3, "y": 4 }
+    ]
+  },
+  "termination": {
+    "winConditions": [
+      {
+        "type": "occupy-zone",
+        "label": "ring を 2 マス以上占有する",
+        "pieceKind": "guard",
+        "zone": "ring",
+        "minCount": 2
+      },
+      {
+        "type": "capture-all",
+        "label": "相手の guard を全て取る",
+        "pieceKind": "guard"
+      }
+    ],
+    "drawConditions": [
+      {
+        "type": "move-limit",
+        "label": "50 手で打ち切り",
+        "maxMoves": 50
+      },
+      {
+        "type": "repetition",
+        "label": "3 回同一局面",
+        "count": 3
+      }
+    ]
+  },
+  "evaluation": {
+    "weights": {
+      "material": 0.95,
+      "mobility": 0.2,
+      "centerControl": 0.12,
+      "advancement": 0,
+      "linePotential": 0,
+      "zonePressure": 1.9,
+      "connectionPressure": 0
+    }
+  }
+}

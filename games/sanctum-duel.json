@@ -1,0 +1,114 @@
+{
+  "id": "sanctum-duel",
+  "name": "Sanctum Duel",
+  "description": "四隅を欠いた masked board で戦う小型対局。king を中央の sanctum に入れるか、相手の king を取れば勝ち。",
+  "board": {
+    "width": 5,
+    "height": 5,
+    "disabledCells": [
+      { "x": 0, "y": 0 },
+      { "x": 4, "y": 0 },
+      { "x": 0, "y": 4 },
+      { "x": 4, "y": 4 }
+    ],
+    "zones": {
+      "sanctum": {
+        "label": "Sanctum",
+        "cells": [{ "x": 2, "y": 2 }]
+      }
+    }
+  },
+  "players": [
+    { "id": "P1", "name": "Blue", "forward": 1 },
+    { "id": "P2", "name": "Orange", "forward": -1 }
+  ],
+  "turnOrder": ["P1", "P2"],
+  "pieceKinds": {
+    "king": {
+      "label": "King",
+      "shortLabel": "King",
+      "symbolByPlayer": {
+        "P1": "♔",
+        "P2": "♚"
+      },
+      "movement": [
+        {
+          "type": "step",
+          "mode": "move-or-capture",
+          "vectors": [[1, 0], [-1, 0], [0, 1], [0, -1], [1, 1], [1, -1], [-1, 1], [-1, -1]]
+        }
+      ],
+      "evaluation": { "value": 100 }
+    },
+    "guard": {
+      "label": "Guard",
+      "shortLabel": "Guard",
+      "symbolByPlayer": {
+        "P1": "▲",
+        "P2": "▼"
+      },
+      "movement": [
+        {
+          "type": "step",
+          "mode": "move-or-capture",
+          "vectors": [[1, 0], [-1, 0], [0, 1], [0, -1]]
+        }
+      ],
+      "evaluation": { "value": 4 }
+    }
+  },
+  "actionCatalog": [
+    {
+      "type": "move-piece",
+      "pieceKinds": ["king", "guard"]
+    }
+  ],
+  "initialState": {
+    "pieces": [
+      { "kind": "guard", "owner": "P1", "x": 1, "y": 0 },
+      { "kind": "king", "owner": "P1", "x": 2, "y": 0 },
+      { "kind": "guard", "owner": "P1", "x": 3, "y": 0 },
+      { "kind": "guard", "owner": "P2", "x": 1, "y": 4 },
+      { "kind": "king", "owner": "P2", "x": 2, "y": 4 },
+      { "kind": "guard", "owner": "P2", "x": 3, "y": 4 }
+    ]
+  },
+  "termination": {
+    "winConditions": [
+      {
+        "type": "reach-zone",
+        "label": "king を sanctum に入れる",
+        "pieceKind": "king",
+        "zone": "sanctum"
+      },
+      {
+        "type": "capture-all",
+        "label": "相手の king を取る",
+        "pieceKind": "king"
+      }
+    ],
+    "drawConditions": [
+      {
+        "type": "move-limit",
+        "label": "60 手で打ち切り",
+        "maxMoves": 60
+      },
+      {
+        "type": "repetition",
+        "label": "3 回同一局面",
+        "count": 3
+      }
+    ]
+  },
+  "evaluation": {
+    "weights": {
+      "material": 1,
+      "mobility": 0.18,
+      "centerControl": 0.14,
+      "advancement": 0,
+      "linePotential": 0,
+      "zonePressure": 1.65,
+      "connectionPressure": 0
+    }
+  }
+}

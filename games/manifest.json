@@ -1,5 +1,28 @@
 [
   {
+    "id": "bridge-link",
+    "name": "Bridge Link",
+    "path": "./games/bridge-link.json",
+    "summary": "masked board と named zone を使う接続ゲーム。P1 は左右、P2 は上下をつなぐ。",
+    "engineHighlights": [
+      "disabledCells で欠けた盤面形状を表現",
+      "connect-zones でパス接続勝利を定義",
+      "connectionPressure で接続途中の局面も評価できる"
+    ],
+    "categories": [
+      "placement",
+      "topology",
+      "connection"
+    ],
+    "complexity": "mid+",
+    "authoringFocus": "zones / connect-zones / masked board",
+    "recommendedControllers": [
+      "mcts",
+      "genome",
+      "minimax"
+    ]
+  },
+  {
     "id": "connect-four",
     "name": "Connect Four",
     "path": "./games/connect-four.json",
@@ -92,6 +115,29 @@
     ]
   },
   {
+    "id": "ring-control",
+    "name": "Ring Control",
+    "path": "./games/ring-control.json",
+    "summary": "中央リングの 4 マスのうち 2 マスを確保すると勝つエリア制圧ゲーム。occupy-zone の最小例。",
+    "engineHighlights": [
+      "occupy-zone でエリア占有勝利を表現",
+      "zonePressure によって中央支配を評価できる",
+      "capture-all と zone objective を同時に持つ小型ルール"
+    ],
+    "categories": [
+      "movement",
+      "control",
+      "zone"
+    ],
+    "complexity": "mid",
+    "authoringFocus": "occupy-zone / zonePressure",
+    "recommendedControllers": [
+      "minimax",
+      "mcts",
+      "genome"
+    ]
+  },
+  {
     "id": "royal-duel",
     "name": "Royal Duel",
     "path": "./games/royal-duel.json",
@@ -108,6 +154,29 @@
     ],
     "complexity": "mid+",
     "authoringFocus": "step + ray の混在",
+    "recommendedControllers": [
+      "minimax",
+      "mcts",
+      "genome"
+    ]
+  },
+  {
+    "id": "sanctum-duel",
+    "name": "Sanctum Duel",
+    "path": "./games/sanctum-duel.json",
+    "summary": "四隅を欠いた盤面で中央の sanctum を奪い合う小型対局。reach-zone と repetition の例。",
+    "engineHighlights": [
+      "reach-zone で目標セルへの到達勝利を表現",
+      "repetition draw で往復の引き延ばしを抑制",
+      "masked board 上でも step movement を共通 UI で扱える"
+    ],
+    "categories": [
+      "movement",
+      "objective",
+      "masked-board"
+    ],
+    "complexity": "mid+",
+    "authoringFocus": "reach-zone / repetition / blocked cells",
     "recommendedControllers": [
       "minimax",
       "mcts",

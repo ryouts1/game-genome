@@ -1,0 +1,106 @@
+{
+  "id": "bridge-link",
+  "name": "Bridge Link",
+  "description": "masked board と named zone を使う接続ゲーム。P1 は西岸から東岸、P2 は北門から南門まで、自分の link を連結させる。",
+  "board": {
+    "width": 7,
+    "height": 7,
+    "disabledCells": [
+      { "x": 3, "y": 1 },
+      { "x": 3, "y": 2 },
+      { "x": 3, "y": 4 },
+      { "x": 3, "y": 5 }
+    ],
+    "zones": {
+      "westBank": {
+        "label": "West bank",
+        "cells": [
+          { "x": 0, "y": 0 }, { "x": 0, "y": 1 }, { "x": 0, "y": 2 }, { "x": 0, "y": 3 }, { "x": 0, "y": 4 }, { "x": 0, "y": 5 }, { "x": 0, "y": 6 }
+        ]
+      },
+      "eastBank": {
+        "label": "East bank",
+        "cells": [
+          { "x": 6, "y": 0 }, { "x": 6, "y": 1 }, { "x": 6, "y": 2 }, { "x": 6, "y": 3 }, { "x": 6, "y": 4 }, { "x": 6, "y": 5 }, { "x": 6, "y": 6 }
+        ]
+      },
+      "northGate": {
+        "label": "North gate",
+        "cells": [
+          { "x": 0, "y": 0 }, { "x": 1, "y": 0 }, { "x": 2, "y": 0 }, { "x": 3, "y": 0 }, { "x": 4, "y": 0 }, { "x": 5, "y": 0 }, { "x": 6, "y": 0 }
+        ]
+      },
+      "southGate": {
+        "label": "South gate",
+        "cells": [
+          { "x": 0, "y": 6 }, { "x": 1, "y": 6 }, { "x": 2, "y": 6 }, { "x": 3, "y": 6 }, { "x": 4, "y": 6 }, { "x": 5, "y": 6 }, { "x": 6, "y": 6 }
+        ]
+      }
+    }
+  },
+  "players": [
+    { "id": "P1", "name": "Blue", "forward": 1 },
+    { "id": "P2", "name": "Orange", "forward": -1 }
+  ],
+  "turnOrder": ["P1", "P2"],
+  "pieceKinds": {
+    "link": {
+      "label": "Link",
+      "shortLabel": "Link",
+      "symbolByPlayer": {
+        "P1": "●",
+        "P2": "○"
+      },
+      "evaluation": {
+        "value": 1
+      }
+    }
+  },
+  "actionCatalog": [
+    {
+      "type": "place",
+      "pieceKind": "link",
+      "constraints": [
+        { "type": "empty" }
+      ]
+    }
+  ],
+  "initialState": {
+    "pieces": []
+  },
+  "termination": {
+    "winConditions": [
+      {
+        "type": "connect-zones",
+        "label": "自分の辺同士を接続する",
+        "pieceKind": "link",
+        "fromZoneByPlayer": {
+          "P1": "westBank",
+          "P2": "northGate"
+        },
+        "toZoneByPlayer": {
+          "P1": "eastBank",
+          "P2": "southGate"
+        },
+        "directions": "orthogonal"
+      }
+    ],
+    "drawConditions": [
+      {
+        "type": "board-full",
+        "label": "全ての有効セルが埋まる"
+      }
+    ]
+  },
+  "evaluation": {
+    "weights": {
+      "material": 0,
+      "mobility": 0.02,
+      "centerControl": 0.04,
+      "advancement": 0,
+      "linePotential": 0,
+      "zonePressure": 0.45,
+      "connectionPressure": 1.95
+    }
+  }
+}

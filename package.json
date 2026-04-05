@@ -1,9 +1,9 @@
 {
   "name": "game-genome",
-  "version": "2.4.0",
+  "version": "3.0.0",
   "private": true,
   "type": "module",
-  "description": "JSON-defined board game framework with shared UI, rule engine, hybrid learned AI, authoring studio, and arena runner.",
+  "description": "JSON-defined board game framework with masked grids, zones, connection goals, hybrid learned AI, studio authoring tools, and arena runner.",
   "scripts": {
     "start": "node scripts/dev-server.js",
     "test": "node --test",
