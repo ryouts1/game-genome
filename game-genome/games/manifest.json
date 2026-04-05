@@ -1,0 +1,46 @@
+[
+  {
+    "id": "tic-tac-toe",
+    "name": "Tic Tac Toe",
+    "path": "./games/tic-tac-toe.json",
+    "summary": "もっとも小さい JSON 定義例。配置アクションと line 勝利条件だけで完結します。",
+    "engineHighlights": [
+      "配置専用ゲームを actionCatalog の place だけで定義",
+      "line / board-full の終局判定を共通エンジンで再利用",
+      "中心評価と linePotential だけで minimax が十分に機能"
+    ]
+  },
+  {
+    "id": "connect-four",
+    "name": "Connect Four",
+    "path": "./games/connect-four.json",
+    "summary": "重力付き配置ゲーム。列クリックで着地し、同じ UI でも別ルールに変わる例です。",
+    "engineHighlights": [
+      "gravity 制約を JSON だけで追加",
+      "同じ line 条件でも盤面サイズと手の枝刈りが変わることを確認可能",
+      "MCTS を大きめ分岐の配置ゲームに使う例"
+    ]
+  },
+  {
+    "id": "lane-breakthrough",
+    "name": "Lane Breakthrough",
+    "path": "./games/lane-breakthrough.json",
+    "summary": "前進・斜め捕獲・到達勝利を持つ駒移動ゲーム。将棋系派生の前段として使えます。",
+    "engineHighlights": [
+      "forward ベクトルで先手後手の向きを吸収",
+      "reach-row / capture-all / no-legal-moves の複合終局判定",
+      "進軍度と機動力を評価関数に混ぜる例"
+    ]
+  },
+  {
+    "id": "royal-duel",
+    "name": "Royal Duel",
+    "path": "./games/royal-duel.json",
+    "summary": "King / Rook / Bishop の最小対局。ray 移動と王駒捕獲を 1 つの JSON にまとめています。",
+    "engineHighlights": [
+      "step と ray の混在した move-piece ルール",
+      "capture-all(king) で王手系ゲームの最小構成を再現",
+      "量子将棋 repo を作る前の盤面・駒表現の足場として使いやすい"
+    ]
+  }
+]

@@ -1,0 +1,200 @@
+{
+  "id": "lane-breakthrough",
+  "name": "Lane Breakthrough",
+  "description": "前進と斜め捕獲だけで構成した小型突破ゲーム。",
+  "board": {
+    "width": 5,
+    "height": 5
+  },
+  "players": [
+    {
+      "id": "P1",
+      "name": "先手",
+      "forward": 1
+    },
+    {
+      "id": "P2",
+      "name": "後手",
+      "forward": -1
+    }
+  ],
+  "turnOrder": [
+    "P1",
+    "P2"
+  ],
+  "pieceKinds": {
+    "soldier": {
+      "label": "Soldier",
+      "shortLabel": "Soldier",
+      "symbolByPlayer": {
+        "P1": "▲",
+        "P2": "▼"
+      },
+      "movement": [
+        {
+          "type": "step",
+          "orientation": "forward",
+          "mode": "move",
+          "vectors": [
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "type": "step",
+          "orientation": "forward",
+          "mode": "capture",
+          "vectors": [
+            [
+              -1,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        }
+      ],
+      "evaluation": {
+        "value": 2
+      }
+    }
+  },
+  "actionCatalog": [
+    {
+      "type": "move-piece",
+      "pieceKinds": [
+        "soldier"
+      ]
+    }
+  ],
+  "initialState": {
+    "pieces": [
+      {
+        "kind": "soldier",
+        "owner": "P1",
+        "x": 0,
+        "y": 0
+      },
+      {
+        "kind": "soldier",
+        "owner": "P1",
+        "x": 1,
+        "y": 0
+      },
+      {
+        "kind": "soldier",
+        "owner": "P1",
+        "x": 2,
+        "y": 0
+      },
+      {
+        "kind": "soldier",
+        "owner": "P1",
+        "x": 3,
+        "y": 0
+      },
+      {
+        "kind": "soldier",
+        "owner": "P1",
+        "x": 4,
+        "y": 0
+      },
+      {
+        "kind": "soldier",
+        "owner": "P1",
+        "x": 1,
+        "y": 1
+      },
+      {
+        "kind": "soldier",
+        "owner": "P1",
+        "x": 3,
+        "y": 1
+      },
+      {
+        "kind": "soldier",
+        "owner": "P2",
+        "x": 0,
+        "y": 4
+      },
+      {
+        "kind": "soldier",
+        "owner": "P2",
+        "x": 1,
+        "y": 4
+      },
+      {
+        "kind": "soldier",
+        "owner": "P2",
+        "x": 2,
+        "y": 4
+      },
+      {
+        "kind": "soldier",
+        "owner": "P2",
+        "x": 3,
+        "y": 4
+      },
+      {
+        "kind": "soldier",
+        "owner": "P2",
+        "x": 4,
+        "y": 4
+      },
+      {
+        "kind": "soldier",
+        "owner": "P2",
+        "x": 1,
+        "y": 3
+      },
+      {
+        "kind": "soldier",
+        "owner": "P2",
+        "x": 3,
+        "y": 3
+      }
+    ]
+  },
+  "termination": {
+    "winConditions": [
+      {
+        "type": "reach-row",
+        "label": "自軍の兵が相手側の端に到達する",
+        "pieceKind": "soldier",
+        "targetRowByPlayer": {
+          "P1": 4,
+          "P2": 0
+        }
+      },
+      {
+        "type": "capture-all",
+        "label": "相手の兵を全滅させる",
+        "pieceKind": "soldier"
+      },
+      {
+        "type": "opponent-has-no-legal-moves",
+        "label": "相手に合法手がない"
+      }
+    ],
+    "drawConditions": [
+      {
+        "type": "move-limit",
+        "label": "80 手で打ち切り",
+        "maxMoves": 80
+      }
+    ]
+  },
+  "evaluation": {
+    "weights": {
+      "material": 0.8,
+      "mobility": 0.12,
+      "centerControl": 0.04,
+      "advancement": 1.4,
+      "linePotential": 0
+    }
+  }
+}
