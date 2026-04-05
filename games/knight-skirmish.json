@@ -1,0 +1,119 @@
+{
+  "id": "knight-skirmish",
+  "name": "Knight Skirmish",
+  "description": "ナイト移動だけで戦うジャンプ駒ゲーム。step movement の飛び越し移動例。",
+  "board": {
+    "width": 6,
+    "height": 6
+  },
+  "players": [
+    {
+      "id": "P1",
+      "name": "先手",
+      "forward": 1
+    },
+    {
+      "id": "P2",
+      "name": "後手",
+      "forward": -1
+    }
+  ],
+  "turnOrder": [
+    "P1",
+    "P2"
+  ],
+  "pieceKinds": {
+    "rider": {
+      "label": "Rider",
+      "shortLabel": "Rider",
+      "symbolByPlayer": {
+        "P1": "♘",
+        "P2": "♞"
+      },
+      "movement": [
+        {
+          "type": "step",
+          "mode": "move-or-capture",
+          "vectors": [
+            [1, 2],
+            [2, 1],
+            [-1, 2],
+            [-2, 1],
+            [1, -2],
+            [2, -1],
+            [-1, -2],
+            [-2, -1]
+          ]
+        }
+      ],
+      "evaluation": {
+        "value": 5
+      }
+    }
+  },
+  "actionCatalog": [
+    {
+      "type": "move-piece",
+      "pieceKinds": [
+        "rider"
+      ]
+    }
+  ],
+  "initialState": {
+    "pieces": [
+      {
+        "kind": "rider",
+        "owner": "P1",
+        "x": 1,
+        "y": 0
+      },
+      {
+        "kind": "rider",
+        "owner": "P1",
+        "x": 4,
+        "y": 0
+      },
+      {
+        "kind": "rider",
+        "owner": "P2",
+        "x": 1,
+        "y": 5
+      },
+      {
+        "kind": "rider",
+        "owner": "P2",
+        "x": 4,
+        "y": 5
+      }
+    ]
+  },
+  "termination": {
+    "winConditions": [
+      {
+        "type": "capture-all",
+        "label": "相手の rider を全て取る",
+        "pieceKind": "rider"
+      },
+      {
+        "type": "opponent-has-no-legal-moves",
+        "label": "相手に合法手がない"
+      }
+    ],
+    "drawConditions": [
+      {
+        "type": "move-limit",
+        "label": "60 手で打ち切り",
+        "maxMoves": 60
+      }
+    ]
+  },
+  "evaluation": {
+    "weights": {
+      "material": 1,
+      "mobility": 0.22,
+      "centerControl": 0.2,
+      "advancement": 0,
+      "linePotential": 0
+    }
+  }
+}

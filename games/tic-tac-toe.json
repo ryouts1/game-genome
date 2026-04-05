@@ -1,0 +1,84 @@
+{
+  "id": "tic-tac-toe",
+  "name": "Tic Tac Toe",
+  "description": "3x3 配置ゲーム。もっとも小さい JSON 定義サンプル。",
+  "board": {
+    "width": 3,
+    "height": 3
+  },
+  "players": [
+    {
+      "id": "P1",
+      "name": "先手",
+      "forward": 1
+    },
+    {
+      "id": "P2",
+      "name": "後手",
+      "forward": -1
+    }
+  ],
+  "turnOrder": [
+    "P1",
+    "P2"
+  ],
+  "pieceKinds": {
+    "mark": {
+      "label": "Mark",
+      "shortLabel": "Mark",
+      "symbolByPlayer": {
+        "P1": "X",
+        "P2": "O"
+      },
+      "evaluation": {
+        "value": 1
+      }
+    }
+  },
+  "actionCatalog": [
+    {
+      "type": "place",
+      "pieceKind": "mark",
+      "constraints": [
+        {
+          "type": "empty"
+        }
+      ],
+      "inventory": {
+        "byPlayer": {
+          "P1": 5,
+          "P2": 4
+        }
+      }
+    }
+  ],
+  "initialState": {
+    "pieces": []
+  },
+  "termination": {
+    "winConditions": [
+      {
+        "type": "line",
+        "label": "同じ記号を 3 つ並べる",
+        "pieceKind": "mark",
+        "length": 3,
+        "directions": "orthogonal+diagonal"
+      }
+    ],
+    "drawConditions": [
+      {
+        "type": "board-full",
+        "label": "盤面が埋まる"
+      }
+    ]
+  },
+  "evaluation": {
+    "weights": {
+      "material": 0,
+      "mobility": 0.03,
+      "centerControl": 0.2,
+      "advancement": 0,
+      "linePotential": 3.2
+    }
+  }
+}

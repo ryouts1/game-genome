@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>game-genome studio</title>
+    <link rel="stylesheet" href="./assets/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="panel sidebar">
+        <div>
+          <p class="eyebrow">game-genome studio</p>
+          <h1>JSON からゲームを作って、すぐ検証まで回す</h1>
+          <p class="lede">
+            盤面ゲームを JSON で定義すると、UI、ルールエンジン、Minimax / MCTS AI、自己対戦で作った学習済みブック、バッチ対局、定義エディタまで同じ基盤で使えます。
+          </p>
+        </div>
+
+        <section class="control-group">
+          <label for="catalog-search">ゲーム検索</label>
+          <input id="catalog-search" type="search" placeholder="ゲーム名 / id / rule / tag" />
+        </section>
+
+        <section class="control-group">
+          <label for="game-selector">ゲームカタログ</label>
+          <select id="game-selector"></select>
+          <p id="game-summary" class="muted"></p>
+          <div class="badge-row wrap-row">
+            <span id="game-id-badge" class="badge">-</span>
+            <span id="game-source-badge" class="badge">-</span>
+            <span id="game-complexity-badge" class="badge">-</span>
+          </div>
+          <div id="game-tags" class="badge-row wrap-row"></div>
+          <p id="game-meta-text" class="muted"></p>
+        </section>
+
+        <section class="control-group">
+          <label for="template-selector">スターターテンプレート</label>
+          <select id="template-selector"></select>
+          <button id="load-template-button" type="button" class="secondary-button">テンプレートを editor に読み込む</button>
+          <p id="template-summary" class="muted">新しい派生ゲームの叩き台をすぐ editor に入れられます。</p>
+        </section>
+
+        <section class="control-group two-column">
+          <div>
+            <label for="player-one-controller">Player 1</label>
+            <select id="player-one-controller">
+              <option value="human">Human</option>
+              <option value="minimax">Minimax</option>
+              <option value="mcts">MCTS</option>
+              <option value="genome">Genome AI</option>
+              <option value="random">Random</option>
+            </select>
+          </div>
+          <div>
+            <label for="player-two-controller">Player 2</label>
+            <select id="player-two-controller">
+              <option value="human">Human</option>
+              <option value="minimax">Minimax</option>
+              <option value="mcts">MCTS</option>
+              <option value="genome">Genome AI</option>
+              <option value="random">Random</option>
+            </select>
+          </div>
+        </section>
+
+        <section class="control-group two-column">
+          <div>
+            <label for="minimax-depth">Minimax depth</label>
+            <input id="minimax-depth" type="number" min="1" max="6" value="4" />
+          </div>
+          <div>
+            <label for="mcts-iterations">MCTS iterations</label>
+            <input id="mcts-iterations" type="number" min="50" max="5000" step="50" value="900" />
+          </div>
+        </section>
+
+        <section class="control-group actions-row">
+          <button id="restart-button" type="button">初期局面に戻す</button>
+          <button id="run-ai-button" type="button">AI を 1 手進める</button>
+        </section>
+
+        <section class="control-group actions-row compact">
+          <button id="undo-button" type="button">Undo</button>
+          <button id="redo-button" type="button">Redo</button>
+        </section>
+
+        <section class="control-group">
+          <div class="section-title-row">
+            <h2>タイムライン</h2>
+            <button id="analyze-button" type="button" class="secondary-button">局面分析</button>
+          </div>
+          <input id="timeline-slider" type="range" min="0" max="0" value="0" />
+          <p id="timeline-label" class="muted">0 手目</p>
+        </section>
+
+        <section class="control-group actions-row">
+          <button id="copy-share-button" type="button">共有リンクをコピー</button>
+          <button id="export-json-button" type="button">JSON を保存</button>
+        </section>
+
+        <section class="control-group">
+          <button id="import-json-button" type="button">JSON を読み込む</button>
+          <input id="import-json-input" type="file" accept=".json,application/json" hidden />
+          <p class="muted">
+            定義はローカル保存できます。共有リンクは URL ハッシュに JSON を埋め込む方式です。
+          </p>
+        </section>
+
+        <section class="control-group">
+          <h2>ステータス</h2>
+          <p id="status-text">読み込み中...</p>
+          <div id="legend" class="legend"></div>
+        </section>
+
+        <section class="control-group">
+          <h2>ゲーム定義の見どころ</h2>
+          <ul id="feature-list" class="feature-list"></ul>
+        </section>
+      </aside>
+
+      <main class="workspace">
+        <section class="panel board-panel">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">playground</p>
+              <h2 id="board-title">-</h2>
+            </div>
+            <p id="turn-indicator" class="turn-indicator"></p>
+          </div>
+
+          <div id="board-stats" class="metric-grid"></div>
+
+          <div id="board-container" class="board-container"></div>
+          <p id="board-hint" class="muted board-hint"></p>
+        </section>
+
+        <section class="panel insight-panel">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">insights</p>
+              <h2>ルール / AI / ログ</h2>
+            </div>
+          </div>
+
+          <div class="detail-grid">
+            <section>
+              <h3>ルール</h3>
+              <div id="rule-summary" class="stacked-text"></div>
+            </section>
+            <section>
+              <h3>AI の直前決定</h3>
+              <div id="ai-summary" class="stacked-text"></div>
+            </section>
+            <section>
+              <h3>学習済みナレッジ</h3>
+              <div id="learning-status" class="stacked-text"></div>
+            </section>
+          </div>
+
+          <section class="analysis-section">
+            <div class="section-title-row">
+              <h3>局面分析</h3>
+              <p id="analysis-status" class="muted"></p>
+            </div>
+            <div id="analysis-overview" class="metric-grid compact-grid"></div>
+            <ul id="analysis-notes" class="feature-list"></ul>
+
+            <div class="analysis-grid">
+              <section>
+                <h4>Minimax 候補</h4>
+                <div id="minimax-candidates" class="table-wrap"></div>
+              </section>
+              <section>
+                <h4>MCTS 候補</h4>
+                <div id="mcts-candidates" class="table-wrap"></div>
+              </section>
+              <section>
+                <h4>Learned 候補</h4>
+                <div id="learned-candidates" class="table-wrap"></div>
+              </section>
+            </div>
+          </section>
+
+          <section>
+            <h3>手順ログ</h3>
+            <ol id="move-log" class="move-log"></ol>
+          </section>
+        </section>
+
+        <section class="panel studio-panel">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">studio</p>
+              <h2>ゲーム定義エディタ</h2>
+            </div>
+            <div class="button-row">
+              <button id="validate-definition-button" type="button" class="secondary-button">検証</button>
+              <button id="format-definition-button" type="button" class="secondary-button">整形</button>
+              <button id="apply-definition-button" type="button">プレビュー適用</button>
+              <button id="save-definition-button" type="button">ローカル保存</button>
+              <button id="snapshot-definition-button" type="button" class="secondary-button">スナップショット保存</button>
+              <button id="reset-editor-button" type="button" class="secondary-button">現在の定義に戻す</button>
+              <button id="delete-custom-button" type="button" class="danger-button">保存済み定義を削除</button>
+            </div>
+          </div>
+
+          <div class="studio-grid">
+            <div class="editor-column">
+              <textarea id="definition-editor" class="definition-editor" spellcheck="false"></textarea>
+            </div>
+            <div class="diagnostic-column">
+              <p id="studio-status" class="muted">定義を編集して検証またはプレビュー適用できます。</p>
+              <div id="definition-health" class="metric-grid compact-grid"></div>
+              <ul id="definition-quality-notes" class="feature-list"></ul>
+              <ul id="definition-diagnostics" class="diagnostic-list"></ul>
+              <div id="definition-preview" class="stacked-text preview-box"></div>
+
+              <section>
+                <div class="section-title-row">
+                  <h3>保存スナップショット</h3>
+                </div>
+                <ul id="draft-list" class="draft-list"></ul>
+              </section>
+
+              <section>
+                <h3>DSL quick reference</h3>
+                <ul class="feature-list reference-list">
+                  <li><code>place</code>: 空きマス配置。<code>gravity</code> や <code>row-zone</code> を追加可能。</li>
+                  <li><code>move-piece</code>: 既存の駒移動。<code>step</code> と <code>ray</code> をサポート。</li>
+                  <li><code>reach-row</code>: 到達勝利。前進ゲームで使いやすいです。</li>
+                  <li><code>capture-all</code>: 特定の駒種を全て取る終局。</li>
+                  <li><code>move-limit</code>: Arena 比較で長引き過ぎるルールの保険。</li>
+                </ul>
+              </section>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel arena-panel">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">arena</p>
+              <h2>AI バッチ対局</h2>
+            </div>
+            <div class="button-row">
+              <button id="arena-export-button" type="button" class="secondary-button">CSV を保存</button>
+              <button id="arena-run-button" type="button">対局を実行</button>
+            </div>
+          </div>
+
+          <div class="arena-controls">
+            <div>
+              <label for="arena-controller-a">Controller A</label>
+              <select id="arena-controller-a">
+                <option value="minimax">Minimax</option>
+                <option value="mcts">MCTS</option>
+                <option value="genome">Genome AI</option>
+                <option value="random">Random</option>
+              </select>
+            </div>
+            <div>
+              <label for="arena-controller-b">Controller B</label>
+              <select id="arena-controller-b">
+                <option value="mcts">MCTS</option>
+                <option value="minimax">Minimax</option>
+                <option value="genome">Genome AI</option>
+                <option value="random">Random</option>
+              </select>
+            </div>
+            <div>
+              <label for="arena-match-count">対局数</label>
+              <input id="arena-match-count" type="number" min="1" max="200" value="20" />
+            </div>
+            <div>
+              <label for="arena-hard-limit">安全手数上限</label>
+              <input id="arena-hard-limit" type="number" min="10" max="400" value="120" />
+            </div>
+            <div>
+              <label for="arena-seed">Seed</label>
+              <input id="arena-seed" type="number" value="11" />
+            </div>
+            <div class="checkbox-card">
+              <label class="checkbox-row" for="arena-swap-sides">
+                <input id="arena-swap-sides" type="checkbox" checked />
+                毎局で先後を入れ替える
+              </label>
+            </div>
+          </div>
+
+          <p id="arena-status" class="muted">現在のゲーム定義で AI 同士の対局をまとめて回します。</p>
+          <div id="arena-summary" class="metric-grid compact-grid"></div>
+          <div id="arena-results" class="table-wrap"></div>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="./src/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,5231 @@
+{
+  "formatVersion": 1,
+  "gameId": "tic-tac-toe",
+  "generatedAt": "2026-04-05T11:03:37.588Z",
+  "meta": {
+    "episodes": 1800,
+    "hardMoveLimit": 12,
+    "epsilon": 0.12,
+    "seed": null,
+    "teacherController": "minimax",
+    "teacherOptions": {
+      "depth": 4,
+      "candidateLimit": 5
+    },
+    "stateCount": 259,
+    "decisionSamples": 14931,
+    "recommendation": {
+      "minimumVisits": 8,
+      "minimumConfidence": 0.18,
+      "fallbackController": "mcts"
+    },
+    "trainingPlan": {
+      "mode": "multi-seed-self-play",
+      "shards": [
+        {
+          "seed": 101,
+          "episodes": 600,
+          "teacherController": "minimax",
+          "teacherOptions": {
+            "depth": 4,
+            "candidateLimit": 5
+          },
+          "epsilon": 0.12,
+          "hardMoveLimit": 12
+        },
+        {
+          "seed": 211,
+          "episodes": 600,
+          "teacherController": "minimax",
+          "teacherOptions": {
+            "depth": 4,
+            "candidateLimit": 5
+          },
+          "epsilon": 0.12,
+          "hardMoveLimit": 12
+        },
+        {
+          "seed": 307,
+          "episodes": 600,
+          "teacherController": "minimax",
+          "teacherOptions": {
+            "depth": 4,
+            "candidateLimit": 5
+          },
+          "epsilon": 0.12,
+          "hardMoveLimit": 12
+        }
+      ]
+    }
+  },
+  "states": [
+    {
+      "stateKey": "P1|",
+      "playerId": "P1",
+      "visits": 1800,
+      "averageValue": 0.1694,
+      "actions": [
+        {
+          "key": "place|P1|mark|1,1",
+          "text": "mark -> B2",
+          "visits": 1630,
+          "meanScore": 0.1914,
+          "wins": 382,
+          "draws": 1178,
+          "losses": 70
+        },
+        {
+          "key": "place|P1|mark|0,0",
+          "text": "mark -> A1",
+          "visits": 21,
+          "meanScore": 0.0952,
+          "wins": 4,
+          "draws": 15,
+          "losses": 2
+        },
+        {
+          "key": "place|P1|mark|0,1",
+          "text": "mark -> A2",
+          "visits": 22,
+          "meanScore": 0.0909,
+          "wins": 6,
+          "draws": 12,
+          "losses": 4
+        },
+        {
+          "key": "place|P1|mark|2,0",
+          "text": "mark -> C1",
+          "visits": 23,
+          "meanScore": 0,
+          "wins": 3,
+          "draws": 17,
+          "losses": 3
+        },
+        {
+          "key": "place|P1|mark|1,2",
+          "text": "mark -> B3",
+          "visits": 27,
+          "meanScore": -0.037,
+          "wins": 3,
+          "draws": 20,
+          "losses": 4
+        },
+        {
+          "key": "place|P1|mark|1,0",
+          "text": "mark -> B1",
+          "visits": 16,
+          "meanScore": -0.0625,
+          "wins": 1,
+          "draws": 13,
+          "losses": 2
+        },
+        {
+          "key": "place|P1|mark|2,2",
+          "text": "mark -> C3",
+          "visits": 17,
+          "meanScore": -0.1176,
+          "wins": 2,
+          "draws": 11,
+          "losses": 4
+        },
+        {
+          "key": "place|P1|mark|0,2",
+          "text": "mark -> A3",
+          "visits": 25,
+          "meanScore": -0.12,
+          "wins": 3,
+          "draws": 16,
+          "losses": 6
+        },
+        {
+          "key": "place|P1|mark|2,1",
+          "text": "mark -> C2",
+          "visits": 19,
+          "meanScore": -0.2105,
+          "wins": 2,
+          "draws": 11,
+          "losses": 6
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@1,1",
+      "playerId": "P2",
+      "visits": 1630,
+      "averageValue": -0.1914,
+      "actions": [
+        {
+          "key": "place|P2|mark|2,2",
+          "text": "mark -> C3",
+          "visits": 27,
+          "meanScore": 0.037,
+          "wins": 4,
+          "draws": 20,
+          "losses": 3
+        },
+        {
+          "key": "place|P2|mark|2,0",
+          "text": "mark -> C1",
+          "visits": 28,
+          "meanScore": 0,
+          "wins": 4,
+          "draws": 20,
+          "losses": 4
+        },
+        {
+          "key": "place|P2|mark|0,2",
+          "text": "mark -> A3",
+          "visits": 21,
+          "meanScore": -0.1429,
+          "wins": 1,
+          "draws": 16,
+          "losses": 4
+        },
+        {
+          "key": "place|P2|mark|0,0",
+          "text": "mark -> A1",
+          "visits": 1470,
+          "meanScore": -0.1585,
+          "wins": 60,
+          "draws": 1117,
+          "losses": 293
+        },
+        {
+          "key": "place|P2|mark|2,1",
+          "text": "mark -> C2",
+          "visits": 20,
+          "meanScore": -0.8,
+          "wins": 1,
+          "draws": 2,
+          "losses": 17
+        },
+        {
+          "key": "place|P2|mark|1,0",
+          "text": "mark -> B1",
+          "visits": 20,
+          "meanScore": -0.95,
+          "wins": 0,
+          "draws": 1,
+          "losses": 19
+        },
+        {
+          "key": "place|P2|mark|0,1",
+          "text": "mark -> A2",
+          "visits": 20,
+          "meanScore": -0.95,
+          "wins": 0,
+          "draws": 1,
+          "losses": 19
+        },
+        {
+          "key": "place|P2|mark|1,2",
+          "text": "mark -> B3",
+          "visits": 24,
+          "meanScore": -0.9583,
+          "wins": 0,
+          "draws": 1,
+          "losses": 23
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@1,1;P2:mark@0,0",
+      "playerId": "P1",
+      "visits": 1470,
+      "averageValue": 0.1585,
+      "actions": [
+        {
+          "key": "place|P1|mark|1,0",
+          "text": "mark -> B1",
+          "visits": 1327,
+          "meanScore": 0.1733,
+          "wins": 267,
+          "draws": 1023,
+          "losses": 37
+        },
+        {
+          "key": "place|P1|mark|0,1",
+          "text": "mark -> A2",
+          "visits": 14,
+          "meanScore": 0.1429,
+          "wins": 2,
+          "draws": 12,
+          "losses": 0
+        },
+        {
+          "key": "place|P1|mark|2,0",
+          "text": "mark -> C1",
+          "visits": 24,
+          "meanScore": 0.125,
+          "wins": 4,
+          "draws": 19,
+          "losses": 1
+        },
+        {
+          "key": "place|P1|mark|2,1",
+          "text": "mark -> C2",
+          "visits": 29,
+          "meanScore": 0.069,
+          "wins": 7,
+          "draws": 17,
+          "losses": 5
+        },
+        {
+          "key": "place|P1|mark|0,2",
+          "text": "mark -> A3",
+          "visits": 24,
+          "meanScore": 0.0417,
+          "wins": 6,
+          "draws": 13,
+          "losses": 5
+        },
+        {
+          "key": "place|P1|mark|2,2",
+          "text": "mark -> C3",
+          "visits": 27,
+          "meanScore": -0.0741,
+          "wins": 5,
+          "draws": 15,
+          "losses": 7
+        },
+        {
+          "key": "place|P1|mark|1,2",
+          "text": "mark -> B3",
+          "visits": 25,
+          "meanScore": -0.12,
+          "wins": 2,
+          "draws": 18,
+          "losses": 5
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@1,0;P1:mark@1,1;P2:mark@0,0",
+      "playerId": "P2",
+      "visits": 1327,
+      "averageValue": -0.1733,
+      "actions": [
+        {
+          "key": "place|P2|mark|1,2",
+          "text": "mark -> B3",
+          "visits": 1205,
+          "meanScore": -0.1004,
+          "wins": 32,
+          "draws": 1020,
+          "losses": 153
+        },
+        {
+          "key": "place|P2|mark|0,1",
+          "text": "mark -> A2",
+          "visits": 22,
+          "meanScore": -0.8182,
+          "wins": 2,
+          "draws": 0,
+          "losses": 20
+        },
+        {
+          "key": "place|P2|mark|2,0",
+          "text": "mark -> C1",
+          "visits": 30,
+          "meanScore": -0.8667,
+          "wins": 1,
+          "draws": 2,
+          "losses": 27
+        },
+        {
+          "key": "place|P2|mark|0,2",
+          "text": "mark -> A3",
+          "visits": 19,
+          "meanScore": -0.8947,
+          "wins": 1,
+          "draws": 0,
+          "losses": 18
+        },
+        {
+          "key": "place|P2|mark|2,2",
+          "text": "mark -> C3",
+          "visits": 25,
+          "meanScore": -0.92,
+          "wins": 1,
+          "draws": 0,
+          "losses": 24
+        },
+        {
+          "key": "place|P2|mark|2,1",
+          "text": "mark -> C2",
+          "visits": 26,
+          "meanScore": -0.9615,
+          "wins": 0,
+          "draws": 1,
+          "losses": 25
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@1,0;P1:mark@1,1;P2:mark@0,0;P2:mark@1,2",
+      "playerId": "P1",
+      "visits": 1205,
+      "averageValue": 0.1004,
+      "actions": [
+        {
+          "key": "place|P1|mark|0,2",
+          "text": "mark -> A3",
+          "visits": 21,
+          "meanScore": 0.2381,
+          "wins": 5,
+          "draws": 16,
+          "losses": 0
+        },
+        {
+          "key": "place|P1|mark|0,1",
+          "text": "mark -> A2",
+          "visits": 1100,
+          "meanScore": 0.1264,
+          "wins": 142,
+          "draws": 955,
+          "losses": 3
+        },
+        {
+          "key": "place|P1|mark|2,1",
+          "text": "mark -> C2",
+          "visits": 31,
+          "meanScore": 0.0323,
+          "wins": 3,
+          "draws": 26,
+          "losses": 2
+        },
+        {
+          "key": "place|P1|mark|2,2",
+          "text": "mark -> C3",
+          "visits": 26,
+          "meanScore": -0.0769,
+          "wins": 1,
+          "draws": 22,
+          "losses": 3
+        },
+        {
+          "key": "place|P1|mark|2,0",
+          "text": "mark -> C1",
+          "visits": 27,
+          "meanScore": -0.8148,
+          "wins": 2,
+          "draws": 1,
+          "losses": 24
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,1;P1:mark@1,0;P1:mark@1,1;P2:mark@0,0;P2:mark@1,2",
+      "playerId": "P2",
+      "visits": 1100,
+      "averageValue": -0.1264,
+      "actions": [
+        {
+          "key": "place|P2|mark|2,1",
+          "text": "mark -> C2",
+          "visits": 1001,
+          "meanScore": -0.0519,
+          "wins": 0,
+          "draws": 949,
+          "losses": 52
+        },
+        {
+          "key": "place|P2|mark|0,2",
+          "text": "mark -> A3",
+          "visits": 30,
+          "meanScore": -0.7667,
+          "wins": 2,
+          "draws": 3,
+          "losses": 25
+        },
+        {
+          "key": "place|P2|mark|2,0",
+          "text": "mark -> C1",
+          "visits": 35,
+          "meanScore": -0.9143,
+          "wins": 0,
+          "draws": 3,
+          "losses": 32
+        },
+        {
+          "key": "place|P2|mark|2,2",
+          "text": "mark -> C3",
+          "visits": 34,
+          "meanScore": -0.9412,
+          "wins": 1,
+          "draws": 0,
+          "losses": 33
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,1;P1:mark@1,0;P1:mark@1,1;P2:mark@0,0;P2:mark@1,2;P2:mark@2,1",
+      "playerId": "P1",
+      "visits": 1015,
+      "averageValue": 0.0522,
+      "actions": [
+        {
+          "key": "place|P1|mark|2,0",
+          "text": "mark -> C1",
+          "visits": 915,
+          "meanScore": 0.0568,
+          "wins": 52,
+          "draws": 863,
+          "losses": 0
+        },
+        {
+          "key": "place|P1|mark|0,2",
+          "text": "mark -> A3",
+          "visits": 55,
+          "meanScore": 0.0182,
+          "wins": 1,
+          "draws": 54,
+          "losses": 0
+        },
+        {
+          "key": "place|P1|mark|2,2",
+          "text": "mark -> C3",
+          "visits": 45,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 45,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,1;P1:mark@1,0;P1:mark@1,1;P1:mark@2,0;P2:mark@0,0;P2:mark@1,2;P2:mark@2,1",
+      "playerId": "P2",
+      "visits": 915,
+      "averageValue": -0.0568,
+      "actions": [
+        {
+          "key": "place|P2|mark|0,2",
+          "text": "mark -> A3",
+          "visits": 863,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 863,
+          "losses": 0
+        },
+        {
+          "key": "place|P2|mark|2,2",
+          "text": "mark -> C3",
+          "visits": 52,
+          "meanScore": -1,
+          "wins": 0,
+          "draws": 0,
+          "losses": 52
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,1;P1:mark@1,0;P1:mark@1,1;P1:mark@2,0;P2:mark@0,0;P2:mark@0,2;P2:mark@1,2;P2:mark@2,1",
+      "playerId": "P1",
+      "visits": 881,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P1|mark|2,2",
+          "text": "mark -> C3",
+          "visits": 881,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 881,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,1;P1:mark@0,2;P1:mark@1,0;P1:mark@1,1;P2:mark@0,0;P2:mark@1,2;P2:mark@2,0;P2:mark@2,1",
+      "playerId": "P1",
+      "visits": 85,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P1|mark|2,2",
+          "text": "mark -> C3",
+          "visits": 85,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 85,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,1;P1:mark@1,0;P1:mark@1,1;P1:mark@2,2;P2:mark@0,0;P2:mark@1,2;P2:mark@2,0;P2:mark@2,1",
+      "playerId": "P1",
+      "visits": 80,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P1|mark|0,2",
+          "text": "mark -> A3",
+          "visits": 80,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 80,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,1;P1:mark@0,2;P1:mark@1,0;P1:mark@1,1;P2:mark@0,0;P2:mark@1,2;P2:mark@2,1",
+      "playerId": "P2",
+      "visits": 54,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P2|mark|2,0",
+          "text": "mark -> C1",
+          "visits": 54,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 54,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,1;P1:mark@1,0;P1:mark@1,1;P1:mark@2,0;P2:mark@0,0;P2:mark@1,2;P2:mark@2,1;P2:mark@2,2",
+      "playerId": "P1",
+      "visits": 52,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P1|mark|0,2",
+          "text": "mark -> A3",
+          "visits": 52,
+          "meanScore": 1,
+          "wins": 52,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,1;P1:mark@1,0;P1:mark@1,1;P1:mark@2,2;P2:mark@0,0;P2:mark@1,2;P2:mark@2,1",
+      "playerId": "P2",
+      "visits": 47,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P2|mark|2,0",
+          "text": "mark -> C1",
+          "visits": 45,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 45,
+          "losses": 0
+        },
+        {
+          "key": "place|P2|mark|0,2",
+          "text": "mark -> A3",
+          "visits": 2,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 2,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,2;P1:mark@1,0;P1:mark@1,1;P1:mark@2,1;P2:mark@0,0;P2:mark@0,1;P2:mark@1,2;P2:mark@2,0",
+      "playerId": "P1",
+      "visits": 43,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P1|mark|2,2",
+          "text": "mark -> C3",
+          "visits": 43,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 43,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,1;P1:mark@1,0;P1:mark@1,1;P2:mark@0,0;P2:mark@1,2;P2:mark@2,0",
+      "playerId": "P1",
+      "visits": 36,
+      "averageValue": 0.9444,
+      "actions": [
+        {
+          "key": "place|P1|mark|2,1",
+          "text": "mark -> C2",
+          "visits": 34,
+          "meanScore": 1,
+          "wins": 34,
+          "draws": 0,
+          "losses": 0
+        },
+        {
+          "key": "place|P1|mark|0,2",
+          "text": "mark -> A3",
+          "visits": 2,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 2,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,1;P1:mark@0,2;P1:mark@1,0;P1:mark@1,1;P2:mark@0,0;P2:mark@1,2;P2:mark@2,0",
+      "playerId": "P2",
+      "visits": 36,
+      "averageValue": -0.1389,
+      "actions": [
+        {
+          "key": "place|P2|mark|2,1",
+          "text": "mark -> C2",
+          "visits": 31,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 31,
+          "losses": 0
+        },
+        {
+          "key": "place|P2|mark|2,2",
+          "text": "mark -> C3",
+          "visits": 5,
+          "meanScore": -1,
+          "wins": 0,
+          "draws": 0,
+          "losses": 5
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,1;P1:mark@1,0;P1:mark@1,1;P2:mark@0,0;P2:mark@1,2;P2:mark@2,2",
+      "playerId": "P1",
+      "visits": 34,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P1|mark|2,1",
+          "text": "mark -> C2",
+          "visits": 32,
+          "meanScore": 1,
+          "wins": 32,
+          "draws": 0,
+          "losses": 0
+        },
+        {
+          "key": "place|P1|mark|0,2",
+          "text": "mark -> A3",
+          "visits": 2,
+          "meanScore": 1,
+          "wins": 2,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,2;P1:mark@1,0;P1:mark@1,1;P2:mark@0,0;P2:mark@1,2;P2:mark@2,0",
+      "playerId": "P1",
+      "visits": 34,
+      "averageValue": 0.1471,
+      "actions": [
+        {
+          "key": "place|P1|mark|0,1",
+          "text": "mark -> A2",
+          "visits": 34,
+          "meanScore": 0.1471,
+          "wins": 5,
+          "draws": 29,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@1,0;P1:mark@1,1;P1:mark@2,1;P2:mark@0,0;P2:mark@1,2",
+      "playerId": "P2",
+      "visits": 31,
+      "averageValue": -0.0323,
+      "actions": [
+        {
+          "key": "place|P2|mark|0,1",
+          "text": "mark -> A2",
+          "visits": 29,
+          "meanScore": 0.0345,
+          "wins": 2,
+          "draws": 26,
+          "losses": 1
+        },
+        {
+          "key": "place|P2|mark|0,2",
+          "text": "mark -> A3",
+          "visits": 2,
+          "meanScore": -1,
+          "wins": 0,
+          "draws": 0,
+          "losses": 2
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,1;P1:mark@1,0;P1:mark@1,1;P2:mark@0,0;P2:mark@0,2;P2:mark@1,2",
+      "playerId": "P1",
+      "visits": 31,
+      "averageValue": 0.7742,
+      "actions": [
+        {
+          "key": "place|P1|mark|2,1",
+          "text": "mark -> C2",
+          "visits": 26,
+          "meanScore": 1,
+          "wins": 26,
+          "draws": 0,
+          "losses": 0
+        },
+        {
+          "key": "place|P1|mark|2,2",
+          "text": "mark -> C3",
+          "visits": 3,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 3,
+          "losses": 0
+        },
+        {
+          "key": "place|P1|mark|2,0",
+          "text": "mark -> C1",
+          "visits": 2,
+          "meanScore": -1,
+          "wins": 0,
+          "draws": 0,
+          "losses": 2
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,0;P1:mark@2,0;P2:mark@1,1",
+      "playerId": "P2",
+      "visits": 31,
+      "averageValue": 0.129,
+      "actions": [
+        {
+          "key": "place|P2|mark|1,0",
+          "text": "mark -> B1",
+          "visits": 31,
+          "meanScore": 0.129,
+          "wins": 4,
+          "draws": 27,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,0;P1:mark@0,1;P1:mark@1,1;P2:mark@1,0;P2:mark@1,2;P2:mark@2,1",
+      "playerId": "P1",
+      "visits": 31,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P1|mark|2,0",
+          "text": "mark -> C1",
+          "visits": 29,
+          "meanScore": 1,
+          "wins": 29,
+          "draws": 0,
+          "losses": 0
+        },
+        {
+          "key": "place|P1|mark|0,2",
+          "text": "mark -> A3",
+          "visits": 2,
+          "meanScore": 1,
+          "wins": 2,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,0;P1:mark@2,0;P2:mark@1,0;P2:mark@1,1",
+      "playerId": "P1",
+      "visits": 30,
+      "averageValue": -0.1,
+      "actions": [
+        {
+          "key": "place|P1|mark|1,2",
+          "text": "mark -> B3",
+          "visits": 28,
+          "meanScore": -0.0357,
+          "wins": 0,
+          "draws": 27,
+          "losses": 1
+        },
+        {
+          "key": "place|P1|mark|2,1",
+          "text": "mark -> C2",
+          "visits": 2,
+          "meanScore": -1,
+          "wins": 0,
+          "draws": 0,
+          "losses": 2
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@1,0;P1:mark@1,1;P2:mark@0,0;P2:mark@2,0",
+      "playerId": "P1",
+      "visits": 30,
+      "averageValue": 0.8667,
+      "actions": [
+        {
+          "key": "place|P1|mark|0,1",
+          "text": "mark -> A2",
+          "visits": 28,
+          "meanScore": 0.9286,
+          "wins": 27,
+          "draws": 0,
+          "losses": 1
+        },
+        {
+          "key": "place|P1|mark|2,2",
+          "text": "mark -> C3",
+          "visits": 2,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 2,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@1,0;P1:mark@1,1;P1:mark@2,1;P2:mark@0,0;P2:mark@0,1;P2:mark@1,2",
+      "playerId": "P1",
+      "visits": 28,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P1|mark|0,2",
+          "text": "mark -> A3",
+          "visits": 26,
+          "meanScore": 0.0385,
+          "wins": 1,
+          "draws": 25,
+          "losses": 0
+        },
+        {
+          "key": "place|P1|mark|2,2",
+          "text": "mark -> C3",
+          "visits": 2,
+          "meanScore": -0.5,
+          "wins": 0,
+          "draws": 1,
+          "losses": 1
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,0;P1:mark@1,2;P1:mark@2,0;P2:mark@1,0;P2:mark@1,1",
+      "playerId": "P2",
+      "visits": 28,
+      "averageValue": 0.0357,
+      "actions": [
+        {
+          "key": "place|P2|mark|0,1",
+          "text": "mark -> A2",
+          "visits": 26,
+          "meanScore": 0.0385,
+          "wins": 1,
+          "draws": 25,
+          "losses": 0
+        },
+        {
+          "key": "place|P2|mark|2,2",
+          "text": "mark -> C3",
+          "visits": 2,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 2,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,0;P1:mark@0,1;P1:mark@1,1;P1:mark@2,0;P2:mark@1,0;P2:mark@1,2;P2:mark@2,1",
+      "playerId": "P2",
+      "visits": 28,
+      "averageValue": -1,
+      "actions": [
+        {
+          "key": "place|P2|mark|0,2",
+          "text": "mark -> A3",
+          "visits": 28,
+          "meanScore": -1,
+          "wins": 0,
+          "draws": 0,
+          "losses": 28
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,0;P1:mark@0,1;P1:mark@1,1;P1:mark@2,0;P2:mark@0,2;P2:mark@1,0;P2:mark@1,2;P2:mark@2,1",
+      "playerId": "P1",
+      "visits": 28,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P1|mark|2,2",
+          "text": "mark -> C3",
+          "visits": 28,
+          "meanScore": 1,
+          "wins": 28,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,1;P1:mark@1,0;P1:mark@1,1;P2:mark@0,0;P2:mark@2,0",
+      "playerId": "P2",
+      "visits": 28,
+      "averageValue": -0.9286,
+      "actions": [
+        {
+          "key": "place|P2|mark|2,1",
+          "text": "mark -> C2",
+          "visits": 24,
+          "meanScore": -0.9167,
+          "wins": 1,
+          "draws": 0,
+          "losses": 23
+        },
+        {
+          "key": "place|P2|mark|0,2",
+          "text": "mark -> A3",
+          "visits": 2,
+          "meanScore": -1,
+          "wins": 0,
+          "draws": 0,
+          "losses": 2
+        },
+        {
+          "key": "place|P2|mark|1,2",
+          "text": "mark -> B3",
+          "visits": 2,
+          "meanScore": -1,
+          "wins": 0,
+          "draws": 0,
+          "losses": 2
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@1,1;P1:mark@2,1;P2:mark@0,0",
+      "playerId": "P2",
+      "visits": 27,
+      "averageValue": 0.037,
+      "actions": [
+        {
+          "key": "place|P2|mark|0,1",
+          "text": "mark -> A2",
+          "visits": 27,
+          "meanScore": 0.037,
+          "wins": 5,
+          "draws": 18,
+          "losses": 4
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@1,1;P2:mark@2,0",
+      "playerId": "P1",
+      "visits": 26,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P1|mark|1,0",
+          "text": "mark -> B1",
+          "visits": 26,
+          "meanScore": 0,
+          "wins": 4,
+          "draws": 18,
+          "losses": 4
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@1,0;P1:mark@1,1;P2:mark@2,0",
+      "playerId": "P2",
+      "visits": 26,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P2|mark|1,2",
+          "text": "mark -> B3",
+          "visits": 24,
+          "meanScore": 0.0417,
+          "wins": 4,
+          "draws": 17,
+          "losses": 3
+        },
+        {
+          "key": "place|P2|mark|0,0",
+          "text": "mark -> A1",
+          "visits": 2,
+          "meanScore": -0.5,
+          "wins": 0,
+          "draws": 1,
+          "losses": 1
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,1;P1:mark@1,0;P1:mark@1,1;P1:mark@2,0;P2:mark@0,0;P2:mark@0,2;P2:mark@1,2",
+      "playerId": "P2",
+      "visits": 26,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P2|mark|2,2",
+          "text": "mark -> C3",
+          "visits": 26,
+          "meanScore": 1,
+          "wins": 26,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,0;P1:mark@1,2;P1:mark@2,0;P1:mark@2,1;P2:mark@0,1;P2:mark@1,0;P2:mark@1,1;P2:mark@2,2",
+      "playerId": "P1",
+      "visits": 26,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P1|mark|0,2",
+          "text": "mark -> A3",
+          "visits": 26,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 26,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@1,0;P1:mark@1,1;P1:mark@2,2;P2:mark@0,0;P2:mark@1,2",
+      "playerId": "P2",
+      "visits": 26,
+      "averageValue": 0.0769,
+      "actions": [
+        {
+          "key": "place|P2|mark|0,1",
+          "text": "mark -> A2",
+          "visits": 24,
+          "meanScore": 0.0833,
+          "wins": 3,
+          "draws": 20,
+          "losses": 1
+        },
+        {
+          "key": "place|P2|mark|2,1",
+          "text": "mark -> C2",
+          "visits": 2,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 2,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@1,1;P1:mark@2,1;P2:mark@0,0;P2:mark@0,1",
+      "playerId": "P1",
+      "visits": 26,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P1|mark|0,2",
+          "text": "mark -> A3",
+          "visits": 23,
+          "meanScore": 0.0435,
+          "wins": 3,
+          "draws": 18,
+          "losses": 2
+        },
+        {
+          "key": "place|P1|mark|1,0",
+          "text": "mark -> B1",
+          "visits": 3,
+          "meanScore": -0.3333,
+          "wins": 1,
+          "draws": 0,
+          "losses": 2
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,2;P1:mark@1,0;P1:mark@1,1;P1:mark@2,1;P2:mark@0,0;P2:mark@0,1;P2:mark@1,2",
+      "playerId": "P2",
+      "visits": 25,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P2|mark|2,0",
+          "text": "mark -> C1",
+          "visits": 25,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 25,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,0;P1:mark@1,2;P1:mark@2,0;P2:mark@0,1;P2:mark@1,0;P2:mark@1,1",
+      "playerId": "P1",
+      "visits": 25,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P1|mark|2,1",
+          "text": "mark -> C2",
+          "visits": 25,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 25,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,0;P1:mark@1,2;P1:mark@2,0;P1:mark@2,1;P2:mark@0,1;P2:mark@1,0;P2:mark@1,1",
+      "playerId": "P2",
+      "visits": 25,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P2|mark|2,2",
+          "text": "mark -> C3",
+          "visits": 25,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 25,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@1,0;P1:mark@1,1;P1:mark@2,0;P2:mark@0,0;P2:mark@1,2",
+      "playerId": "P2",
+      "visits": 25,
+      "averageValue": 0.96,
+      "actions": [
+        {
+          "key": "place|P2|mark|0,2",
+          "text": "mark -> A3",
+          "visits": 25,
+          "meanScore": 0.96,
+          "wins": 24,
+          "draws": 1,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@1,0;P1:mark@1,1;P2:mark@0,0;P2:mark@2,1",
+      "playerId": "P1",
+      "visits": 25,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P1|mark|1,2",
+          "text": "mark -> B3",
+          "visits": 25,
+          "meanScore": 1,
+          "wins": 25,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@1,0;P1:mark@1,1;P1:mark@2,0;P2:mark@0,0;P2:mark@0,2;P2:mark@1,2",
+      "playerId": "P1",
+      "visits": 25,
+      "averageValue": -0.96,
+      "actions": [
+        {
+          "key": "place|P1|mark|0,1",
+          "text": "mark -> A2",
+          "visits": 25,
+          "meanScore": -0.96,
+          "wins": 0,
+          "draws": 1,
+          "losses": 24
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@1,1;P1:mark@2,1;P2:mark@0,1;P2:mark@2,2",
+      "playerId": "P1",
+      "visits": 25,
+      "averageValue": -0.04,
+      "actions": [
+        {
+          "key": "place|P1|mark|1,0",
+          "text": "mark -> B1",
+          "visits": 23,
+          "meanScore": 0.0435,
+          "wins": 2,
+          "draws": 20,
+          "losses": 1
+        },
+        {
+          "key": "place|P1|mark|2,0",
+          "text": "mark -> C1",
+          "visits": 2,
+          "meanScore": -1,
+          "wins": 0,
+          "draws": 0,
+          "losses": 2
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@1,2",
+      "playerId": "P2",
+      "visits": 25,
+      "averageValue": 0.04,
+      "actions": [
+        {
+          "key": "place|P2|mark|1,1",
+          "text": "mark -> B2",
+          "visits": 25,
+          "meanScore": 0.04,
+          "wins": 3,
+          "draws": 20,
+          "losses": 2
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@1,1;P2:mark@2,2",
+      "playerId": "P1",
+      "visits": 25,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P1|mark|2,1",
+          "text": "mark -> C2",
+          "visits": 25,
+          "meanScore": 0,
+          "wins": 3,
+          "draws": 19,
+          "losses": 3
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@1,0;P1:mark@1,1;P2:mark@0,0;P2:mark@2,2",
+      "playerId": "P1",
+      "visits": 25,
+      "averageValue": 0.92,
+      "actions": [
+        {
+          "key": "place|P1|mark|0,2",
+          "text": "mark -> A3",
+          "visits": 2,
+          "meanScore": 1,
+          "wins": 2,
+          "draws": 0,
+          "losses": 0
+        },
+        {
+          "key": "place|P1|mark|1,2",
+          "text": "mark -> B3",
+          "visits": 2,
+          "meanScore": 1,
+          "wins": 2,
+          "draws": 0,
+          "losses": 0
+        },
+        {
+          "key": "place|P1|mark|0,1",
+          "text": "mark -> A2",
+          "visits": 21,
+          "meanScore": 0.9048,
+          "wins": 20,
+          "draws": 0,
+          "losses": 1
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@1,1;P1:mark@1,2;P2:mark@0,0",
+      "playerId": "P2",
+      "visits": 24,
+      "averageValue": 0.1667,
+      "actions": [
+        {
+          "key": "place|P2|mark|1,0",
+          "text": "mark -> B1",
+          "visits": 24,
+          "meanScore": 0.1667,
+          "wins": 5,
+          "draws": 18,
+          "losses": 1
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@1,0;P1:mark@1,1;P2:mark@1,2;P2:mark@2,0",
+      "playerId": "P1",
+      "visits": 24,
+      "averageValue": -0.0417,
+      "actions": [
+        {
+          "key": "place|P1|mark|0,1",
+          "text": "mark -> A2",
+          "visits": 24,
+          "meanScore": -0.0417,
+          "wins": 3,
+          "draws": 17,
+          "losses": 4
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,0;P1:mark@0,2;P1:mark@1,2;P1:mark@2,1;P2:mark@0,1;P2:mark@1,0;P2:mark@1,1;P2:mark@2,2",
+      "playerId": "P1",
+      "visits": 24,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P1|mark|2,0",
+          "text": "mark -> C1",
+          "visits": 24,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 24,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@1,0;P1:mark@1,1;P1:mark@2,2;P2:mark@0,0;P2:mark@0,1;P2:mark@1,2",
+      "playerId": "P1",
+      "visits": 24,
+      "averageValue": -0.0833,
+      "actions": [
+        {
+          "key": "place|P1|mark|0,2",
+          "text": "mark -> A3",
+          "visits": 21,
+          "meanScore": 0.0476,
+          "wins": 1,
+          "draws": 20,
+          "losses": 0
+        },
+        {
+          "key": "place|P1|mark|2,0",
+          "text": "mark -> C1",
+          "visits": 3,
+          "meanScore": -1,
+          "wins": 0,
+          "draws": 0,
+          "losses": 3
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@1,1;P1:mark@2,1;P2:mark@2,2",
+      "playerId": "P2",
+      "visits": 24,
+      "averageValue": 0.0417,
+      "actions": [
+        {
+          "key": "place|P2|mark|0,1",
+          "text": "mark -> A2",
+          "visits": 24,
+          "meanScore": 0.0417,
+          "wins": 3,
+          "draws": 19,
+          "losses": 2
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,1;P1:mark@1,0;P1:mark@1,1;P2:mark@0,0;P2:mark@2,0;P2:mark@2,1",
+      "playerId": "P1",
+      "visits": 24,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P1|mark|1,2",
+          "text": "mark -> B3",
+          "visits": 24,
+          "meanScore": 1,
+          "wins": 24,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@1,1;P1:mark@1,2;P2:mark@0,0;P2:mark@1,0",
+      "playerId": "P1",
+      "visits": 23,
+      "averageValue": -0.1304,
+      "actions": [
+        {
+          "key": "place|P1|mark|2,0",
+          "text": "mark -> C1",
+          "visits": 21,
+          "meanScore": -0.0476,
+          "wins": 1,
+          "draws": 18,
+          "losses": 2
+        },
+        {
+          "key": "place|P1|mark|0,1",
+          "text": "mark -> A2",
+          "visits": 2,
+          "meanScore": -1,
+          "wins": 0,
+          "draws": 0,
+          "losses": 2
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,1;P1:mark@1,0;P1:mark@1,1;P2:mark@1,2;P2:mark@2,0",
+      "playerId": "P2",
+      "visits": 23,
+      "averageValue": 0.087,
+      "actions": [
+        {
+          "key": "place|P2|mark|2,1",
+          "text": "mark -> C2",
+          "visits": 21,
+          "meanScore": 0.0952,
+          "wins": 3,
+          "draws": 17,
+          "losses": 1
+        },
+        {
+          "key": "place|P2|mark|2,2",
+          "text": "mark -> C3",
+          "visits": 2,
+          "meanScore": 0,
+          "wins": 1,
+          "draws": 0,
+          "losses": 1
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@1,1;P1:mark@2,2;P2:mark@0,0",
+      "playerId": "P2",
+      "visits": 23,
+      "averageValue": 0.1739,
+      "actions": [
+        {
+          "key": "place|P2|mark|2,0",
+          "text": "mark -> C1",
+          "visits": 23,
+          "meanScore": 0.1739,
+          "wins": 6,
+          "draws": 15,
+          "losses": 2
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@1,0;P1:mark@1,1;P1:mark@2,1;P2:mark@0,1;P2:mark@2,2",
+      "playerId": "P2",
+      "visits": 23,
+      "averageValue": -0.0435,
+      "actions": [
+        {
+          "key": "place|P2|mark|1,2",
+          "text": "mark -> B3",
+          "visits": 23,
+          "meanScore": -0.0435,
+          "wins": 1,
+          "draws": 20,
+          "losses": 2
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@2,0",
+      "playerId": "P2",
+      "visits": 22,
+      "averageValue": 0.0455,
+      "actions": [
+        {
+          "key": "place|P2|mark|1,1",
+          "text": "mark -> B2",
+          "visits": 22,
+          "meanScore": 0.0455,
+          "wins": 3,
+          "draws": 17,
+          "losses": 2
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,2",
+      "playerId": "P2",
+      "visits": 22,
+      "averageValue": 0.2727,
+      "actions": [
+        {
+          "key": "place|P2|mark|1,1",
+          "text": "mark -> B2",
+          "visits": 22,
+          "meanScore": 0.2727,
+          "wins": 6,
+          "draws": 16,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@1,1;P1:mark@2,2;P2:mark@0,0;P2:mark@2,0",
+      "playerId": "P1",
+      "visits": 22,
+      "averageValue": -0.1364,
+      "actions": [
+        {
+          "key": "place|P1|mark|1,0",
+          "text": "mark -> B1",
+          "visits": 17,
+          "meanScore": 0.1176,
+          "wins": 2,
+          "draws": 15,
+          "losses": 0
+        },
+        {
+          "key": "place|P1|mark|0,1",
+          "text": "mark -> A2",
+          "visits": 3,
+          "meanScore": -1,
+          "wins": 0,
+          "draws": 0,
+          "losses": 3
+        },
+        {
+          "key": "place|P1|mark|2,1",
+          "text": "mark -> C2",
+          "visits": 2,
+          "meanScore": -1,
+          "wins": 0,
+          "draws": 0,
+          "losses": 2
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,1;P1:mark@1,2;P1:mark@2,0;P1:mark@2,2;P2:mark@0,2;P2:mark@1,0;P2:mark@1,1;P2:mark@2,1",
+      "playerId": "P1",
+      "visits": 22,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P1|mark|0,0",
+          "text": "mark -> A1",
+          "visits": 22,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 22,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@1,1;P2:mark@1,2",
+      "playerId": "P1",
+      "visits": 22,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P1|mark|0,0",
+          "text": "mark -> A1",
+          "visits": 22,
+          "meanScore": 1,
+          "wins": 22,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,2;P1:mark@1,0;P1:mark@1,1;P1:mark@2,2;P2:mark@0,0;P2:mark@0,1;P2:mark@1,2;P2:mark@2,0",
+      "playerId": "P1",
+      "visits": 22,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P1|mark|2,1",
+          "text": "mark -> C2",
+          "visits": 22,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 22,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,2;P1:mark@1,1;P2:mark@0,0",
+      "playerId": "P2",
+      "visits": 22,
+      "averageValue": 0.0455,
+      "actions": [
+        {
+          "key": "place|P2|mark|2,0",
+          "text": "mark -> C1",
+          "visits": 22,
+          "meanScore": 0.0455,
+          "wins": 5,
+          "draws": 13,
+          "losses": 4
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@1,2;P2:mark@1,1",
+      "playerId": "P1",
+      "visits": 22,
+      "averageValue": -0.0455,
+      "actions": [
+        {
+          "key": "place|P1|mark|2,1",
+          "text": "mark -> C2",
+          "visits": 2,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 2,
+          "losses": 0
+        },
+        {
+          "key": "place|P1|mark|0,0",
+          "text": "mark -> A1",
+          "visits": 20,
+          "meanScore": -0.05,
+          "wins": 2,
+          "draws": 15,
+          "losses": 3
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@1,0;P1:mark@1,1;P1:mark@2,1;P2:mark@0,1;P2:mark@1,2;P2:mark@2,2",
+      "playerId": "P1",
+      "visits": 22,
+      "averageValue": 0.0909,
+      "actions": [
+        {
+          "key": "place|P1|mark|0,2",
+          "text": "mark -> A3",
+          "visits": 22,
+          "meanScore": 0.0909,
+          "wins": 2,
+          "draws": 20,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,2;P1:mark@1,0;P1:mark@1,1;P1:mark@2,1;P2:mark@0,1;P2:mark@1,2;P2:mark@2,2",
+      "playerId": "P2",
+      "visits": 22,
+      "averageValue": -0.0909,
+      "actions": [
+        {
+          "key": "place|P2|mark|2,0",
+          "text": "mark -> C1",
+          "visits": 20,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 20,
+          "losses": 0
+        },
+        {
+          "key": "place|P2|mark|0,0",
+          "text": "mark -> A1",
+          "visits": 2,
+          "meanScore": -1,
+          "wins": 0,
+          "draws": 0,
+          "losses": 2
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@1,1;P1:mark@2,0;P2:mark@0,0",
+      "playerId": "P2",
+      "visits": 22,
+      "averageValue": -0.0455,
+      "actions": [
+        {
+          "key": "place|P2|mark|0,2",
+          "text": "mark -> A3",
+          "visits": 22,
+          "meanScore": -0.0455,
+          "wins": 1,
+          "draws": 19,
+          "losses": 2
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,2;P1:mark@1,1;P1:mark@2,1;P2:mark@0,0;P2:mark@0,1",
+      "playerId": "P2",
+      "visits": 22,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P2|mark|2,0",
+          "text": "mark -> C1",
+          "visits": 22,
+          "meanScore": 0,
+          "wins": 2,
+          "draws": 18,
+          "losses": 2
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@1,1;P1:mark@1,2;P1:mark@2,0;P2:mark@0,0;P2:mark@1,0",
+      "playerId": "P2",
+      "visits": 21,
+      "averageValue": 0.0476,
+      "actions": [
+        {
+          "key": "place|P2|mark|0,2",
+          "text": "mark -> A3",
+          "visits": 21,
+          "meanScore": 0.0476,
+          "wins": 2,
+          "draws": 18,
+          "losses": 1
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@1,1;P1:mark@1,2;P1:mark@2,0;P2:mark@0,0;P2:mark@0,2;P2:mark@1,0",
+      "playerId": "P1",
+      "visits": 21,
+      "averageValue": -0.0476,
+      "actions": [
+        {
+          "key": "place|P1|mark|0,1",
+          "text": "mark -> A2",
+          "visits": 19,
+          "meanScore": 0.0526,
+          "wins": 1,
+          "draws": 18,
+          "losses": 0
+        },
+        {
+          "key": "place|P1|mark|2,2",
+          "text": "mark -> C3",
+          "visits": 2,
+          "meanScore": -1,
+          "wins": 0,
+          "draws": 0,
+          "losses": 2
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,1;P1:mark@1,1;P1:mark@1,2;P1:mark@2,0;P2:mark@0,0;P2:mark@0,2;P2:mark@1,0;P2:mark@2,1",
+      "playerId": "P1",
+      "visits": 21,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P1|mark|2,2",
+          "text": "mark -> C3",
+          "visits": 21,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 21,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,2;P2:mark@1,1",
+      "playerId": "P1",
+      "visits": 21,
+      "averageValue": -0.2857,
+      "actions": [
+        {
+          "key": "place|P1|mark|0,0",
+          "text": "mark -> A1",
+          "visits": 21,
+          "meanScore": -0.2857,
+          "wins": 0,
+          "draws": 15,
+          "losses": 6
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@1,0;P1:mark@1,1;P2:mark@0,0;P2:mark@0,1",
+      "playerId": "P1",
+      "visits": 21,
+      "averageValue": 0.8095,
+      "actions": [
+        {
+          "key": "place|P1|mark|1,2",
+          "text": "mark -> B3",
+          "visits": 19,
+          "meanScore": 1,
+          "wins": 19,
+          "draws": 0,
+          "losses": 0
+        },
+        {
+          "key": "place|P1|mark|2,2",
+          "text": "mark -> C3",
+          "visits": 2,
+          "meanScore": -1,
+          "wins": 0,
+          "draws": 0,
+          "losses": 2
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@1,1;P1:mark@2,0;P2:mark@0,0;P2:mark@0,2",
+      "playerId": "P1",
+      "visits": 21,
+      "averageValue": 0.0952,
+      "actions": [
+        {
+          "key": "place|P1|mark|0,1",
+          "text": "mark -> A2",
+          "visits": 21,
+          "meanScore": 0.0952,
+          "wins": 2,
+          "draws": 19,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,2;P1:mark@1,1;P2:mark@0,0;P2:mark@2,0",
+      "playerId": "P1",
+      "visits": 21,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P1|mark|1,0",
+          "text": "mark -> B1",
+          "visits": 17,
+          "meanScore": 0.2353,
+          "wins": 4,
+          "draws": 13,
+          "losses": 0
+        },
+        {
+          "key": "place|P1|mark|1,2",
+          "text": "mark -> B3",
+          "visits": 2,
+          "meanScore": -1,
+          "wins": 0,
+          "draws": 0,
+          "losses": 2
+        },
+        {
+          "key": "place|P1|mark|2,2",
+          "text": "mark -> C3",
+          "visits": 2,
+          "meanScore": -1,
+          "wins": 0,
+          "draws": 0,
+          "losses": 2
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,1;P1:mark@1,0;P1:mark@1,1;P2:mark@1,2;P2:mark@2,0;P2:mark@2,1",
+      "playerId": "P1",
+      "visits": 20,
+      "averageValue": -0.05,
+      "actions": [
+        {
+          "key": "place|P1|mark|2,2",
+          "text": "mark -> C3",
+          "visits": 18,
+          "meanScore": 0.0556,
+          "wins": 1,
+          "draws": 17,
+          "losses": 0
+        },
+        {
+          "key": "place|P1|mark|0,2",
+          "text": "mark -> A3",
+          "visits": 2,
+          "meanScore": -1,
+          "wins": 0,
+          "draws": 0,
+          "losses": 2
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,1",
+      "playerId": "P2",
+      "visits": 20,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P2|mark|1,1",
+          "text": "mark -> B2",
+          "visits": 20,
+          "meanScore": 0,
+          "wins": 4,
+          "draws": 12,
+          "losses": 4
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,0;P1:mark@0,2;P2:mark@1,1",
+      "playerId": "P2",
+      "visits": 20,
+      "averageValue": 0.25,
+      "actions": [
+        {
+          "key": "place|P2|mark|0,1",
+          "text": "mark -> A2",
+          "visits": 20,
+          "meanScore": 0.25,
+          "wins": 5,
+          "draws": 15,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,0",
+      "playerId": "P2",
+      "visits": 20,
+      "averageValue": -0.1,
+      "actions": [
+        {
+          "key": "place|P2|mark|1,1",
+          "text": "mark -> B2",
+          "visits": 18,
+          "meanScore": 0,
+          "wins": 2,
+          "draws": 14,
+          "losses": 2
+        },
+        {
+          "key": "place|P2|mark|0,1",
+          "text": "mark -> A2",
+          "visits": 2,
+          "meanScore": -1,
+          "wins": 0,
+          "draws": 0,
+          "losses": 2
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,1;P1:mark@1,0;P1:mark@1,1;P1:mark@2,2;P2:mark@0,0;P2:mark@0,2;P2:mark@1,2;P2:mark@2,1",
+      "playerId": "P1",
+      "visits": 20,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P1|mark|2,0",
+          "text": "mark -> C1",
+          "visits": 20,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 20,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,2;P1:mark@1,0;P1:mark@1,1;P1:mark@2,1;P2:mark@0,1;P2:mark@1,2;P2:mark@2,0;P2:mark@2,2",
+      "playerId": "P1",
+      "visits": 20,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P1|mark|0,0",
+          "text": "mark -> A1",
+          "visits": 20,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 20,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,2;P1:mark@1,0;P1:mark@1,1;P1:mark@2,2;P2:mark@0,0;P2:mark@0,1;P2:mark@1,2",
+      "playerId": "P2",
+      "visits": 20,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P2|mark|2,0",
+          "text": "mark -> C1",
+          "visits": 20,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 20,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,1;P1:mark@1,1;P1:mark@2,0;P2:mark@0,0;P2:mark@0,2",
+      "playerId": "P2",
+      "visits": 20,
+      "averageValue": -0.05,
+      "actions": [
+        {
+          "key": "place|P2|mark|2,1",
+          "text": "mark -> C2",
+          "visits": 20,
+          "meanScore": -0.05,
+          "wins": 0,
+          "draws": 19,
+          "losses": 1
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@1,1;P2:mark@0,2",
+      "playerId": "P1",
+      "visits": 20,
+      "averageValue": 0.2,
+      "actions": [
+        {
+          "key": "place|P1|mark|0,1",
+          "text": "mark -> A2",
+          "visits": 20,
+          "meanScore": 0.2,
+          "wins": 4,
+          "draws": 16,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,2;P1:mark@1,1;P1:mark@2,1;P2:mark@0,0;P2:mark@0,1;P2:mark@2,0",
+      "playerId": "P1",
+      "visits": 20,
+      "averageValue": 0.1,
+      "actions": [
+        {
+          "key": "place|P1|mark|1,0",
+          "text": "mark -> B1",
+          "visits": 20,
+          "meanScore": 0.1,
+          "wins": 2,
+          "draws": 18,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,2;P1:mark@1,0;P1:mark@1,1;P1:mark@2,1;P2:mark@0,0;P2:mark@0,1;P2:mark@2,0",
+      "playerId": "P2",
+      "visits": 20,
+      "averageValue": -0.1,
+      "actions": [
+        {
+          "key": "place|P2|mark|1,2",
+          "text": "mark -> B3",
+          "visits": 18,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 18,
+          "losses": 0
+        },
+        {
+          "key": "place|P2|mark|2,2",
+          "text": "mark -> C3",
+          "visits": 2,
+          "meanScore": -1,
+          "wins": 0,
+          "draws": 0,
+          "losses": 2
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,2;P1:mark@1,0;P1:mark@1,1;P2:mark@0,0;P2:mark@1,2",
+      "playerId": "P2",
+      "visits": 19,
+      "averageValue": -0.1579,
+      "actions": [
+        {
+          "key": "place|P2|mark|2,0",
+          "text": "mark -> C1",
+          "visits": 19,
+          "meanScore": -0.1579,
+          "wins": 0,
+          "draws": 16,
+          "losses": 3
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@2,0;P2:mark@1,1",
+      "playerId": "P1",
+      "visits": 19,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P1|mark|2,2",
+          "text": "mark -> C3",
+          "visits": 2,
+          "meanScore": 0.5,
+          "wins": 1,
+          "draws": 1,
+          "losses": 0
+        },
+        {
+          "key": "place|P1|mark|0,0",
+          "text": "mark -> A1",
+          "visits": 17,
+          "meanScore": -0.0588,
+          "wins": 1,
+          "draws": 14,
+          "losses": 2
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,1;P2:mark@1,1",
+      "playerId": "P1",
+      "visits": 19,
+      "averageValue": 0.0526,
+      "actions": [
+        {
+          "key": "place|P1|mark|2,2",
+          "text": "mark -> C3",
+          "visits": 19,
+          "meanScore": 0.0526,
+          "wins": 4,
+          "draws": 12,
+          "losses": 3
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,1;P1:mark@2,2;P2:mark@1,1",
+      "playerId": "P2",
+      "visits": 19,
+      "averageValue": -0.0526,
+      "actions": [
+        {
+          "key": "place|P2|mark|1,0",
+          "text": "mark -> B1",
+          "visits": 19,
+          "meanScore": -0.0526,
+          "wins": 3,
+          "draws": 12,
+          "losses": 4
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,0;P1:mark@0,2;P2:mark@0,1;P2:mark@1,1",
+      "playerId": "P1",
+      "visits": 19,
+      "averageValue": -0.2105,
+      "actions": [
+        {
+          "key": "place|P1|mark|2,1",
+          "text": "mark -> C2",
+          "visits": 16,
+          "meanScore": -0.0625,
+          "wins": 0,
+          "draws": 15,
+          "losses": 1
+        },
+        {
+          "key": "place|P1|mark|2,2",
+          "text": "mark -> C3",
+          "visits": 3,
+          "meanScore": -1,
+          "wins": 0,
+          "draws": 0,
+          "losses": 3
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@1,1;P2:mark@1,0",
+      "playerId": "P1",
+      "visits": 19,
+      "averageValue": 0.9474,
+      "actions": [
+        {
+          "key": "place|P1|mark|0,2",
+          "text": "mark -> A3",
+          "visits": 19,
+          "meanScore": 0.9474,
+          "wins": 18,
+          "draws": 1,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,2;P1:mark@1,1;P2:mark@1,0",
+      "playerId": "P2",
+      "visits": 19,
+      "averageValue": -0.9474,
+      "actions": [
+        {
+          "key": "place|P2|mark|0,1",
+          "text": "mark -> A2",
+          "visits": 17,
+          "meanScore": -0.9412,
+          "wins": 0,
+          "draws": 1,
+          "losses": 16
+        },
+        {
+          "key": "place|P2|mark|2,1",
+          "text": "mark -> C2",
+          "visits": 2,
+          "meanScore": -1,
+          "wins": 0,
+          "draws": 0,
+          "losses": 2
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,0;P1:mark@1,1;P2:mark@1,2",
+      "playerId": "P2",
+      "visits": 19,
+      "averageValue": -1,
+      "actions": [
+        {
+          "key": "place|P2|mark|1,0",
+          "text": "mark -> B1",
+          "visits": 19,
+          "meanScore": -1,
+          "wins": 0,
+          "draws": 0,
+          "losses": 19
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,1;P1:mark@1,0;P1:mark@1,1;P2:mark@0,0;P2:mark@2,2",
+      "playerId": "P2",
+      "visits": 19,
+      "averageValue": -0.8947,
+      "actions": [
+        {
+          "key": "place|P2|mark|2,1",
+          "text": "mark -> C2",
+          "visits": 16,
+          "meanScore": -0.875,
+          "wins": 1,
+          "draws": 0,
+          "losses": 15
+        },
+        {
+          "key": "place|P2|mark|0,2",
+          "text": "mark -> A3",
+          "visits": 3,
+          "meanScore": -1,
+          "wins": 0,
+          "draws": 0,
+          "losses": 3
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@1,0;P1:mark@1,1;P1:mark@2,2;P2:mark@0,0;P2:mark@2,0",
+      "playerId": "P2",
+      "visits": 18,
+      "averageValue": -0.0556,
+      "actions": [
+        {
+          "key": "place|P2|mark|1,2",
+          "text": "mark -> B3",
+          "visits": 18,
+          "meanScore": -0.0556,
+          "wins": 0,
+          "draws": 17,
+          "losses": 1
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,1;P1:mark@1,1;P1:mark@1,2;P1:mark@2,0;P2:mark@0,0;P2:mark@0,2;P2:mark@1,0",
+      "playerId": "P2",
+      "visits": 18,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P2|mark|2,1",
+          "text": "mark -> C2",
+          "visits": 18,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 18,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@1,1;P2:mark@0,1",
+      "playerId": "P1",
+      "visits": 18,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P1|mark|2,0",
+          "text": "mark -> C1",
+          "visits": 18,
+          "meanScore": 1,
+          "wins": 18,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@1,1;P2:mark@2,1",
+      "playerId": "P1",
+      "visits": 18,
+      "averageValue": 0.9444,
+      "actions": [
+        {
+          "key": "place|P1|mark|0,0",
+          "text": "mark -> A1",
+          "visits": 18,
+          "meanScore": 0.9444,
+          "wins": 17,
+          "draws": 1,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,0;P1:mark@1,1;P2:mark@1,0;P2:mark@1,2",
+      "playerId": "P1",
+      "visits": 18,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P1|mark|0,1",
+          "text": "mark -> A2",
+          "visits": 18,
+          "meanScore": 1,
+          "wins": 18,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,1;P1:mark@1,1;P2:mark@0,2;P2:mark@2,1",
+      "playerId": "P1",
+      "visits": 18,
+      "averageValue": 0.0556,
+      "actions": [
+        {
+          "key": "place|P1|mark|1,0",
+          "text": "mark -> B1",
+          "visits": 16,
+          "meanScore": 0.0625,
+          "wins": 2,
+          "draws": 13,
+          "losses": 1
+        },
+        {
+          "key": "place|P1|mark|2,2",
+          "text": "mark -> C3",
+          "visits": 2,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 2,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@1,1;P1:mark@2,0;P2:mark@0,1",
+      "playerId": "P2",
+      "visits": 18,
+      "averageValue": -1,
+      "actions": [
+        {
+          "key": "place|P2|mark|1,0",
+          "text": "mark -> B1",
+          "visits": 16,
+          "meanScore": -1,
+          "wins": 0,
+          "draws": 0,
+          "losses": 16
+        },
+        {
+          "key": "place|P2|mark|0,2",
+          "text": "mark -> A3",
+          "visits": 2,
+          "meanScore": -1,
+          "wins": 0,
+          "draws": 0,
+          "losses": 2
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,0;P1:mark@0,1;P1:mark@1,1;P2:mark@1,0;P2:mark@1,2",
+      "playerId": "P2",
+      "visits": 18,
+      "averageValue": -1,
+      "actions": [
+        {
+          "key": "place|P2|mark|2,1",
+          "text": "mark -> C2",
+          "visits": 18,
+          "meanScore": -1,
+          "wins": 0,
+          "draws": 0,
+          "losses": 18
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,1;P1:mark@1,1;P1:mark@2,0;P2:mark@0,0;P2:mark@0,2;P2:mark@2,1",
+      "playerId": "P1",
+      "visits": 18,
+      "averageValue": 0.0556,
+      "actions": [
+        {
+          "key": "place|P1|mark|1,0",
+          "text": "mark -> B1",
+          "visits": 18,
+          "meanScore": 0.0556,
+          "wins": 1,
+          "draws": 17,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@1,0;P1:mark@1,1;P2:mark@0,0;P2:mark@0,2",
+      "playerId": "P1",
+      "visits": 18,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P1|mark|0,1",
+          "text": "mark -> A2",
+          "visits": 18,
+          "meanScore": 1,
+          "wins": 18,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,1;P1:mark@1,0;P1:mark@1,1;P2:mark@0,0;P2:mark@0,2",
+      "playerId": "P2",
+      "visits": 18,
+      "averageValue": -1,
+      "actions": [
+        {
+          "key": "place|P2|mark|2,1",
+          "text": "mark -> C2",
+          "visits": 16,
+          "meanScore": -1,
+          "wins": 0,
+          "draws": 0,
+          "losses": 16
+        },
+        {
+          "key": "place|P2|mark|2,0",
+          "text": "mark -> C1",
+          "visits": 2,
+          "meanScore": -1,
+          "wins": 0,
+          "draws": 0,
+          "losses": 2
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@1,0;P1:mark@1,1;P1:mark@2,2;P2:mark@0,0;P2:mark@1,2;P2:mark@2,0",
+      "playerId": "P1",
+      "visits": 17,
+      "averageValue": 0.0588,
+      "actions": [
+        {
+          "key": "place|P1|mark|0,1",
+          "text": "mark -> A2",
+          "visits": 17,
+          "meanScore": 0.0588,
+          "wins": 1,
+          "draws": 16,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,1;P1:mark@1,0;P1:mark@1,1;P1:mark@2,2;P2:mark@0,0;P2:mark@1,2;P2:mark@2,0",
+      "playerId": "P2",
+      "visits": 17,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P2|mark|2,1",
+          "text": "mark -> C2",
+          "visits": 17,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 17,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@2,1",
+      "playerId": "P2",
+      "visits": 17,
+      "averageValue": 0.1765,
+      "actions": [
+        {
+          "key": "place|P2|mark|1,1",
+          "text": "mark -> B2",
+          "visits": 17,
+          "meanScore": 0.1765,
+          "wins": 5,
+          "draws": 10,
+          "losses": 2
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,1;P1:mark@2,2;P2:mark@1,0;P2:mark@1,1",
+      "playerId": "P1",
+      "visits": 17,
+      "averageValue": 0.1765,
+      "actions": [
+        {
+          "key": "place|P1|mark|1,2",
+          "text": "mark -> B3",
+          "visits": 17,
+          "meanScore": 0.1765,
+          "wins": 4,
+          "draws": 12,
+          "losses": 1
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,1;P1:mark@1,0;P1:mark@1,1;P1:mark@2,2;P2:mark@1,2;P2:mark@2,0;P2:mark@2,1",
+      "playerId": "P2",
+      "visits": 17,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P2|mark|0,0",
+          "text": "mark -> A1",
+          "visits": 17,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 17,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@2,1;P2:mark@1,1",
+      "playerId": "P1",
+      "visits": 17,
+      "averageValue": -0.1765,
+      "actions": [
+        {
+          "key": "place|P1|mark|0,2",
+          "text": "mark -> A3",
+          "visits": 17,
+          "meanScore": -0.1765,
+          "wins": 2,
+          "draws": 10,
+          "losses": 5
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,0;P2:mark@1,1",
+      "playerId": "P1",
+      "visits": 17,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P1|mark|2,0",
+          "text": "mark -> C1",
+          "visits": 17,
+          "meanScore": 0,
+          "wins": 2,
+          "draws": 13,
+          "losses": 2
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,1;P1:mark@1,1;P2:mark@0,2",
+      "playerId": "P2",
+      "visits": 17,
+      "averageValue": -0.1176,
+      "actions": [
+        {
+          "key": "place|P2|mark|2,1",
+          "text": "mark -> C2",
+          "visits": 17,
+          "meanScore": -0.1176,
+          "wins": 0,
+          "draws": 15,
+          "losses": 2
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,1;P1:mark@1,0;P1:mark@1,1;P1:mark@2,0;P2:mark@0,0;P2:mark@0,2;P2:mark@2,1",
+      "playerId": "P2",
+      "visits": 17,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P2|mark|1,2",
+          "text": "mark -> B3",
+          "visits": 17,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 17,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,1;P1:mark@1,0;P1:mark@1,1;P2:mark@0,0;P2:mark@0,2;P2:mark@2,1",
+      "playerId": "P1",
+      "visits": 17,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P1|mark|1,2",
+          "text": "mark -> B3",
+          "visits": 17,
+          "meanScore": 1,
+          "wins": 17,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,2;P1:mark@1,0;P1:mark@1,1;P2:mark@0,0;P2:mark@2,0",
+      "playerId": "P2",
+      "visits": 17,
+      "averageValue": -0.2353,
+      "actions": [
+        {
+          "key": "place|P2|mark|1,2",
+          "text": "mark -> B3",
+          "visits": 15,
+          "meanScore": -0.1333,
+          "wins": 0,
+          "draws": 13,
+          "losses": 2
+        },
+        {
+          "key": "place|P2|mark|2,2",
+          "text": "mark -> C3",
+          "visits": 2,
+          "meanScore": -1,
+          "wins": 0,
+          "draws": 0,
+          "losses": 2
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,0;P1:mark@1,1;P1:mark@2,0;P1:mark@2,1;P2:mark@0,1;P2:mark@1,0;P2:mark@1,2",
+      "playerId": "P2",
+      "visits": 16,
+      "averageValue": -1,
+      "actions": [
+        {
+          "key": "place|P2|mark|0,2",
+          "text": "mark -> A3",
+          "visits": 16,
+          "meanScore": -1,
+          "wins": 0,
+          "draws": 0,
+          "losses": 16
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,0;P1:mark@1,1;P1:mark@2,0;P1:mark@2,1;P2:mark@0,1;P2:mark@0,2;P2:mark@1,0;P2:mark@1,2",
+      "playerId": "P1",
+      "visits": 16,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P1|mark|2,2",
+          "text": "mark -> C3",
+          "visits": 16,
+          "meanScore": 1,
+          "wins": 16,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,0;P1:mark@1,1;P2:mark@2,1",
+      "playerId": "P2",
+      "visits": 16,
+      "averageValue": -0.9375,
+      "actions": [
+        {
+          "key": "place|P2|mark|1,0",
+          "text": "mark -> B1",
+          "visits": 13,
+          "meanScore": -0.9231,
+          "wins": 0,
+          "draws": 1,
+          "losses": 12
+        },
+        {
+          "key": "place|P2|mark|2,2",
+          "text": "mark -> C3",
+          "visits": 3,
+          "meanScore": -1,
+          "wins": 0,
+          "draws": 0,
+          "losses": 3
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,2;P1:mark@1,1;P1:mark@1,2;P2:mark@0,1;P2:mark@1,0",
+      "playerId": "P2",
+      "visits": 16,
+      "averageValue": -1,
+      "actions": [
+        {
+          "key": "place|P2|mark|2,1",
+          "text": "mark -> C2",
+          "visits": 13,
+          "meanScore": -1,
+          "wins": 0,
+          "draws": 0,
+          "losses": 13
+        },
+        {
+          "key": "place|P2|mark|2,0",
+          "text": "mark -> C1",
+          "visits": 3,
+          "meanScore": -1,
+          "wins": 0,
+          "draws": 0,
+          "losses": 3
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,0;P1:mark@1,2;P2:mark@1,1",
+      "playerId": "P2",
+      "visits": 16,
+      "averageValue": 0.1875,
+      "actions": [
+        {
+          "key": "place|P2|mark|0,1",
+          "text": "mark -> A2",
+          "visits": 16,
+          "meanScore": 0.1875,
+          "wins": 3,
+          "draws": 13,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,0;P1:mark@1,2;P2:mark@0,1;P2:mark@1,1",
+      "playerId": "P1",
+      "visits": 16,
+      "averageValue": -0.1875,
+      "actions": [
+        {
+          "key": "place|P1|mark|2,1",
+          "text": "mark -> C2",
+          "visits": 14,
+          "meanScore": -0.0714,
+          "wins": 0,
+          "draws": 13,
+          "losses": 1
+        },
+        {
+          "key": "place|P1|mark|2,0",
+          "text": "mark -> C1",
+          "visits": 2,
+          "meanScore": -1,
+          "wins": 0,
+          "draws": 0,
+          "losses": 2
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@2,2",
+      "playerId": "P2",
+      "visits": 16,
+      "averageValue": 0.0625,
+      "actions": [
+        {
+          "key": "place|P2|mark|1,1",
+          "text": "mark -> B2",
+          "visits": 16,
+          "meanScore": 0.0625,
+          "wins": 3,
+          "draws": 11,
+          "losses": 2
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,2;P1:mark@2,1;P2:mark@1,1",
+      "playerId": "P2",
+      "visits": 15,
+      "averageValue": 0.2,
+      "actions": [
+        {
+          "key": "place|P2|mark|1,0",
+          "text": "mark -> B1",
+          "visits": 15,
+          "meanScore": 0.2,
+          "wins": 4,
+          "draws": 10,
+          "losses": 1
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,2;P1:mark@1,1;P2:mark@0,1;P2:mark@1,0",
+      "playerId": "P1",
+      "visits": 15,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P1|mark|1,2",
+          "text": "mark -> B3",
+          "visits": 15,
+          "meanScore": 1,
+          "wins": 15,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,0;P1:mark@0,2;P1:mark@2,1;P2:mark@0,1;P2:mark@1,1",
+      "playerId": "P2",
+      "visits": 15,
+      "averageValue": 0.0667,
+      "actions": [
+        {
+          "key": "place|P2|mark|1,0",
+          "text": "mark -> B1",
+          "visits": 13,
+          "meanScore": 0.0769,
+          "wins": 1,
+          "draws": 12,
+          "losses": 0
+        },
+        {
+          "key": "place|P2|mark|2,0",
+          "text": "mark -> C1",
+          "visits": 2,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 2,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,1;P1:mark@1,2;P1:mark@2,2;P2:mark@1,0;P2:mark@1,1",
+      "playerId": "P2",
+      "visits": 15,
+      "averageValue": -0.0667,
+      "actions": [
+        {
+          "key": "place|P2|mark|0,2",
+          "text": "mark -> A3",
+          "visits": 15,
+          "meanScore": -0.0667,
+          "wins": 1,
+          "draws": 12,
+          "losses": 2
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@1,1;P1:mark@2,0;P2:mark@0,1;P2:mark@1,0",
+      "playerId": "P1",
+      "visits": 15,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P1|mark|2,1",
+          "text": "mark -> C2",
+          "visits": 15,
+          "meanScore": 1,
+          "wins": 15,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@1,1;P1:mark@2,0;P1:mark@2,1;P2:mark@0,1;P2:mark@1,0",
+      "playerId": "P2",
+      "visits": 15,
+      "averageValue": -1,
+      "actions": [
+        {
+          "key": "place|P2|mark|1,2",
+          "text": "mark -> B3",
+          "visits": 15,
+          "meanScore": -1,
+          "wins": 0,
+          "draws": 0,
+          "losses": 15
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@1,1;P1:mark@2,0;P1:mark@2,1;P2:mark@0,1;P2:mark@1,0;P2:mark@1,2",
+      "playerId": "P1",
+      "visits": 15,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P1|mark|0,0",
+          "text": "mark -> A1",
+          "visits": 15,
+          "meanScore": 1,
+          "wins": 15,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,1;P1:mark@1,0;P1:mark@1,1;P2:mark@0,2;P2:mark@2,1",
+      "playerId": "P2",
+      "visits": 15,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P2|mark|1,2",
+          "text": "mark -> B3",
+          "visits": 15,
+          "meanScore": 0,
+          "wins": 1,
+          "draws": 13,
+          "losses": 1
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,1;P1:mark@1,0;P1:mark@1,1;P2:mark@0,0;P2:mark@2,1;P2:mark@2,2",
+      "playerId": "P1",
+      "visits": 15,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P1|mark|1,2",
+          "text": "mark -> B3",
+          "visits": 15,
+          "meanScore": 1,
+          "wins": 15,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,1;P1:mark@1,0;P1:mark@1,1;P2:mark@0,0;P2:mark@2,1",
+      "playerId": "P2",
+      "visits": 14,
+      "averageValue": -0.0714,
+      "actions": [
+        {
+          "key": "place|P2|mark|1,2",
+          "text": "mark -> B3",
+          "visits": 14,
+          "meanScore": -0.0714,
+          "wins": 0,
+          "draws": 13,
+          "losses": 1
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,1;P1:mark@1,1;P2:mark@0,0",
+      "playerId": "P2",
+      "visits": 14,
+      "averageValue": -0.1429,
+      "actions": [
+        {
+          "key": "place|P2|mark|2,1",
+          "text": "mark -> C2",
+          "visits": 14,
+          "meanScore": -0.1429,
+          "wins": 0,
+          "draws": 12,
+          "losses": 2
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,1;P1:mark@1,1;P2:mark@0,0;P2:mark@2,1",
+      "playerId": "P1",
+      "visits": 14,
+      "averageValue": 0.1429,
+      "actions": [
+        {
+          "key": "place|P1|mark|1,0",
+          "text": "mark -> B1",
+          "visits": 14,
+          "meanScore": 0.1429,
+          "wins": 2,
+          "draws": 12,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,1;P1:mark@1,2;P1:mark@2,2;P2:mark@0,2;P2:mark@1,0;P2:mark@1,1",
+      "playerId": "P1",
+      "visits": 14,
+      "averageValue": 0.1429,
+      "actions": [
+        {
+          "key": "place|P1|mark|2,0",
+          "text": "mark -> C1",
+          "visits": 14,
+          "meanScore": 0.1429,
+          "wins": 2,
+          "draws": 12,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,1;P1:mark@1,2;P1:mark@2,0;P1:mark@2,2;P2:mark@0,2;P2:mark@1,0;P2:mark@1,1",
+      "playerId": "P2",
+      "visits": 14,
+      "averageValue": -0.1429,
+      "actions": [
+        {
+          "key": "place|P2|mark|2,1",
+          "text": "mark -> C2",
+          "visits": 12,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 12,
+          "losses": 0
+        },
+        {
+          "key": "place|P2|mark|0,0",
+          "text": "mark -> A1",
+          "visits": 2,
+          "meanScore": -1,
+          "wins": 0,
+          "draws": 0,
+          "losses": 2
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,1;P1:mark@1,0;P1:mark@1,1;P2:mark@0,2;P2:mark@1,2;P2:mark@2,1",
+      "playerId": "P1",
+      "visits": 14,
+      "averageValue": 0.0714,
+      "actions": [
+        {
+          "key": "place|P1|mark|2,2",
+          "text": "mark -> C3",
+          "visits": 14,
+          "meanScore": 0.0714,
+          "wins": 1,
+          "draws": 13,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@2,2;P2:mark@1,1",
+      "playerId": "P1",
+      "visits": 14,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P1|mark|2,0",
+          "text": "mark -> C1",
+          "visits": 14,
+          "meanScore": 0,
+          "wins": 2,
+          "draws": 10,
+          "losses": 2
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@1,0",
+      "playerId": "P2",
+      "visits": 14,
+      "averageValue": 0.0714,
+      "actions": [
+        {
+          "key": "place|P2|mark|1,1",
+          "text": "mark -> B2",
+          "visits": 14,
+          "meanScore": 0.0714,
+          "wins": 1,
+          "draws": 13,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@1,0;P2:mark@1,1",
+      "playerId": "P1",
+      "visits": 14,
+      "averageValue": -0.0714,
+      "actions": [
+        {
+          "key": "place|P1|mark|0,2",
+          "text": "mark -> A3",
+          "visits": 14,
+          "meanScore": -0.0714,
+          "wins": 0,
+          "draws": 13,
+          "losses": 1
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,2;P1:mark@1,0;P2:mark@1,1",
+      "playerId": "P2",
+      "visits": 14,
+      "averageValue": 0.0714,
+      "actions": [
+        {
+          "key": "place|P2|mark|0,1",
+          "text": "mark -> A2",
+          "visits": 14,
+          "meanScore": 0.0714,
+          "wins": 1,
+          "draws": 13,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,2;P1:mark@2,1;P2:mark@1,0;P2:mark@1,1",
+      "playerId": "P1",
+      "visits": 13,
+      "averageValue": -0.0769,
+      "actions": [
+        {
+          "key": "place|P1|mark|1,2",
+          "text": "mark -> B3",
+          "visits": 13,
+          "meanScore": -0.0769,
+          "wins": 1,
+          "draws": 10,
+          "losses": 2
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@2,0;P1:mark@2,2;P2:mark@1,1",
+      "playerId": "P2",
+      "visits": 13,
+      "averageValue": 0.1538,
+      "actions": [
+        {
+          "key": "place|P2|mark|2,1",
+          "text": "mark -> C2",
+          "visits": 13,
+          "meanScore": 0.1538,
+          "wins": 2,
+          "draws": 11,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,2;P1:mark@1,1;P1:mark@1,2;P2:mark@0,1;P2:mark@1,0;P2:mark@2,1",
+      "playerId": "P1",
+      "visits": 13,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P1|mark|0,0",
+          "text": "mark -> A1",
+          "visits": 13,
+          "meanScore": 1,
+          "wins": 13,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,0;P1:mark@0,1;P1:mark@1,1;P2:mark@1,0;P2:mark@2,1",
+      "playerId": "P2",
+      "visits": 13,
+      "averageValue": -1,
+      "actions": [
+        {
+          "key": "place|P2|mark|1,2",
+          "text": "mark -> B3",
+          "visits": 13,
+          "meanScore": -1,
+          "wins": 0,
+          "draws": 0,
+          "losses": 13
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,0;P1:mark@1,2;P1:mark@2,1;P2:mark@0,1;P2:mark@1,1",
+      "playerId": "P2",
+      "visits": 13,
+      "averageValue": 0.0769,
+      "actions": [
+        {
+          "key": "place|P2|mark|2,0",
+          "text": "mark -> C1",
+          "visits": 13,
+          "meanScore": 0.0769,
+          "wins": 1,
+          "draws": 12,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@2,0;P1:mark@2,2;P2:mark@1,1;P2:mark@2,1",
+      "playerId": "P1",
+      "visits": 13,
+      "averageValue": -0.1538,
+      "actions": [
+        {
+          "key": "place|P1|mark|0,1",
+          "text": "mark -> A2",
+          "visits": 13,
+          "meanScore": -0.1538,
+          "wins": 0,
+          "draws": 11,
+          "losses": 2
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,1;P1:mark@1,0;P1:mark@1,1;P1:mark@2,2;P2:mark@0,2;P2:mark@1,2;P2:mark@2,1",
+      "playerId": "P2",
+      "visits": 13,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P2|mark|0,0",
+          "text": "mark -> A1",
+          "visits": 13,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 13,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,2;P1:mark@1,0;P2:mark@0,1;P2:mark@1,1",
+      "playerId": "P1",
+      "visits": 13,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P1|mark|2,1",
+          "text": "mark -> C2",
+          "visits": 13,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 13,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,2;P1:mark@1,0;P1:mark@2,1;P2:mark@0,1;P2:mark@1,1",
+      "playerId": "P2",
+      "visits": 13,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P2|mark|2,0",
+          "text": "mark -> C1",
+          "visits": 13,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 13,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,0;P1:mark@0,2;P1:mark@2,1;P2:mark@0,1;P2:mark@1,0;P2:mark@1,1",
+      "playerId": "P1",
+      "visits": 12,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P1|mark|1,2",
+          "text": "mark -> B3",
+          "visits": 12,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 12,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,0;P1:mark@0,2;P1:mark@1,2;P1:mark@2,1;P2:mark@0,1;P2:mark@1,0;P2:mark@1,1",
+      "playerId": "P2",
+      "visits": 12,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P2|mark|2,2",
+          "text": "mark -> C3",
+          "visits": 12,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 12,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,2;P1:mark@1,2;P1:mark@2,1;P2:mark@1,0;P2:mark@1,1",
+      "playerId": "P2",
+      "visits": 12,
+      "averageValue": 0.1667,
+      "actions": [
+        {
+          "key": "place|P2|mark|2,2",
+          "text": "mark -> C3",
+          "visits": 12,
+          "meanScore": 0.1667,
+          "wins": 2,
+          "draws": 10,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,2;P1:mark@1,2;P1:mark@2,1;P2:mark@1,0;P2:mark@1,1;P2:mark@2,2",
+      "playerId": "P1",
+      "visits": 12,
+      "averageValue": -0.1667,
+      "actions": [
+        {
+          "key": "place|P1|mark|0,0",
+          "text": "mark -> A1",
+          "visits": 10,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 10,
+          "losses": 0
+        },
+        {
+          "key": "place|P1|mark|2,0",
+          "text": "mark -> C1",
+          "visits": 2,
+          "meanScore": -1,
+          "wins": 0,
+          "draws": 0,
+          "losses": 2
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,0;P1:mark@0,2;P1:mark@1,1;P1:mark@1,2;P2:mark@0,1;P2:mark@1,0;P2:mark@2,1",
+      "playerId": "P2",
+      "visits": 12,
+      "averageValue": -1,
+      "actions": [
+        {
+          "key": "place|P2|mark|2,0",
+          "text": "mark -> C1",
+          "visits": 12,
+          "meanScore": -1,
+          "wins": 0,
+          "draws": 0,
+          "losses": 12
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,0;P1:mark@0,2;P1:mark@1,1;P1:mark@1,2;P2:mark@0,1;P2:mark@1,0;P2:mark@2,0;P2:mark@2,1",
+      "playerId": "P1",
+      "visits": 12,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P1|mark|2,2",
+          "text": "mark -> C3",
+          "visits": 12,
+          "meanScore": 1,
+          "wins": 12,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,0;P1:mark@1,2;P1:mark@2,1;P2:mark@0,1;P2:mark@1,1;P2:mark@2,0",
+      "playerId": "P1",
+      "visits": 12,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P1|mark|0,2",
+          "text": "mark -> A3",
+          "visits": 12,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 12,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,0;P1:mark@0,2;P1:mark@1,2;P1:mark@2,1;P2:mark@0,1;P2:mark@1,1;P2:mark@2,0",
+      "playerId": "P2",
+      "visits": 12,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P2|mark|2,2",
+          "text": "mark -> C3",
+          "visits": 12,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 12,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,0;P1:mark@0,2;P1:mark@1,2;P1:mark@2,1;P2:mark@0,1;P2:mark@1,1;P2:mark@2,0;P2:mark@2,2",
+      "playerId": "P1",
+      "visits": 12,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P1|mark|1,0",
+          "text": "mark -> B1",
+          "visits": 12,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 12,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,2;P1:mark@1,0;P1:mark@2,1;P2:mark@0,1;P2:mark@1,1;P2:mark@2,0",
+      "playerId": "P1",
+      "visits": 12,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P1|mark|1,2",
+          "text": "mark -> B3",
+          "visits": 12,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 12,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,2;P1:mark@1,0;P1:mark@1,2;P1:mark@2,1;P2:mark@0,1;P2:mark@1,1;P2:mark@2,0",
+      "playerId": "P2",
+      "visits": 12,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P2|mark|2,2",
+          "text": "mark -> C3",
+          "visits": 12,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 12,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,2;P1:mark@1,0;P1:mark@1,2;P1:mark@2,1;P2:mark@0,1;P2:mark@1,1;P2:mark@2,0;P2:mark@2,2",
+      "playerId": "P1",
+      "visits": 12,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P1|mark|0,0",
+          "text": "mark -> A1",
+          "visits": 12,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 12,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,0;P1:mark@1,1;P2:mark@1,0;P2:mark@2,1",
+      "playerId": "P1",
+      "visits": 11,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P1|mark|0,1",
+          "text": "mark -> A2",
+          "visits": 11,
+          "meanScore": 1,
+          "wins": 11,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,1;P1:mark@2,0;P1:mark@2,2;P2:mark@1,1;P2:mark@2,1",
+      "playerId": "P2",
+      "visits": 11,
+      "averageValue": 0.1818,
+      "actions": [
+        {
+          "key": "place|P2|mark|1,0",
+          "text": "mark -> B1",
+          "visits": 11,
+          "meanScore": 0.1818,
+          "wins": 2,
+          "draws": 9,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,1;P1:mark@2,0;P1:mark@2,2;P2:mark@1,0;P2:mark@1,1;P2:mark@2,1",
+      "playerId": "P1",
+      "visits": 11,
+      "averageValue": -0.1818,
+      "actions": [
+        {
+          "key": "place|P1|mark|1,2",
+          "text": "mark -> B3",
+          "visits": 9,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 9,
+          "losses": 0
+        },
+        {
+          "key": "place|P1|mark|0,0",
+          "text": "mark -> A1",
+          "visits": 2,
+          "meanScore": -1,
+          "wins": 0,
+          "draws": 0,
+          "losses": 2
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,0;P1:mark@0,2;P1:mark@1,2;P1:mark@2,1;P2:mark@1,0;P2:mark@1,1;P2:mark@2,2",
+      "playerId": "P2",
+      "visits": 10,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P2|mark|0,1",
+          "text": "mark -> A2",
+          "visits": 10,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 10,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,1;P1:mark@1,2;P1:mark@2,0;P1:mark@2,2;P2:mark@1,0;P2:mark@1,1;P2:mark@2,1",
+      "playerId": "P2",
+      "visits": 9,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P2|mark|0,2",
+          "text": "mark -> A3",
+          "visits": 9,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 9,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,2;P1:mark@1,0;P1:mark@1,1;P1:mark@2,1;P2:mark@0,0;P2:mark@0,1;P2:mark@1,2;P2:mark@2,2",
+      "playerId": "P1",
+      "visits": 5,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P1|mark|2,0",
+          "text": "mark -> C1",
+          "visits": 5,
+          "meanScore": 1,
+          "wins": 5,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,1;P1:mark@0,2;P1:mark@1,0;P1:mark@1,1;P2:mark@0,0;P2:mark@1,2;P2:mark@2,0;P2:mark@2,2",
+      "playerId": "P1",
+      "visits": 5,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P1|mark|2,1",
+          "text": "mark -> C2",
+          "visits": 5,
+          "meanScore": 1,
+          "wins": 5,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,2;P1:mark@1,0;P1:mark@1,1;P1:mark@2,1;P2:mark@0,0;P2:mark@0,1;P2:mark@2,0;P2:mark@2,2",
+      "playerId": "P1",
+      "visits": 4,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P1|mark|1,2",
+          "text": "mark -> B3",
+          "visits": 4,
+          "meanScore": 1,
+          "wins": 4,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,1;P1:mark@0,2;P1:mark@1,0;P1:mark@1,1;P2:mark@0,0;P2:mark@1,2;P2:mark@2,1;P2:mark@2,2",
+      "playerId": "P1",
+      "visits": 4,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P1|mark|2,0",
+          "text": "mark -> C1",
+          "visits": 4,
+          "meanScore": 1,
+          "wins": 4,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,1;P1:mark@1,0;P1:mark@1,1;P2:mark@0,0;P2:mark@0,2;P2:mark@2,0",
+      "playerId": "P1",
+      "visits": 4,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P1|mark|2,1",
+          "text": "mark -> C2",
+          "visits": 4,
+          "meanScore": 1,
+          "wins": 4,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,0;P1:mark@0,2;P1:mark@1,0;P1:mark@2,1;P2:mark@0,1;P2:mark@1,1;P2:mark@1,2;P2:mark@2,0",
+      "playerId": "P1",
+      "visits": 4,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P1|mark|2,2",
+          "text": "mark -> C3",
+          "visits": 4,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 4,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@1,0;P1:mark@1,1;P1:mark@2,0;P1:mark@2,2;P2:mark@0,0;P2:mark@0,1;P2:mark@1,2",
+      "playerId": "P2",
+      "visits": 3,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P2|mark|0,2",
+          "text": "mark -> A3",
+          "visits": 3,
+          "meanScore": 1,
+          "wins": 3,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,0;P1:mark@1,1;P2:mark@2,1;P2:mark@2,2",
+      "playerId": "P1",
+      "visits": 3,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P1|mark|2,0",
+          "text": "mark -> C1",
+          "visits": 3,
+          "meanScore": 1,
+          "wins": 3,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,0;P1:mark@1,1;P1:mark@2,0;P2:mark@2,1;P2:mark@2,2",
+      "playerId": "P2",
+      "visits": 3,
+      "averageValue": -1,
+      "actions": [
+        {
+          "key": "place|P2|mark|1,0",
+          "text": "mark -> B1",
+          "visits": 3,
+          "meanScore": -1,
+          "wins": 0,
+          "draws": 0,
+          "losses": 3
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,0;P1:mark@1,1;P1:mark@2,0;P2:mark@1,0;P2:mark@2,1;P2:mark@2,2",
+      "playerId": "P1",
+      "visits": 3,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P1|mark|0,2",
+          "text": "mark -> A3",
+          "visits": 3,
+          "meanScore": 1,
+          "wins": 3,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,0;P1:mark@1,0;P1:mark@1,1;P2:mark@0,1;P2:mark@1,2;P2:mark@2,1",
+      "playerId": "P1",
+      "visits": 3,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P1|mark|2,0",
+          "text": "mark -> C1",
+          "visits": 3,
+          "meanScore": 1,
+          "wins": 3,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,2;P1:mark@1,1;P1:mark@1,2;P2:mark@0,1;P2:mark@1,0;P2:mark@2,0",
+      "playerId": "P1",
+      "visits": 3,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P1|mark|2,2",
+          "text": "mark -> C3",
+          "visits": 3,
+          "meanScore": 1,
+          "wins": 3,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,0;P1:mark@2,0;P2:mark@0,1;P2:mark@1,1",
+      "playerId": "P1",
+      "visits": 3,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P1|mark|1,0",
+          "text": "mark -> B1",
+          "visits": 3,
+          "meanScore": 1,
+          "wins": 3,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,0;P1:mark@0,2;P1:mark@2,2;P2:mark@0,1;P2:mark@1,1",
+      "playerId": "P2",
+      "visits": 3,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P2|mark|2,1",
+          "text": "mark -> C2",
+          "visits": 3,
+          "meanScore": 1,
+          "wins": 3,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,1;P1:mark@1,0;P1:mark@1,1;P1:mark@2,2;P2:mark@0,0;P2:mark@0,2;P2:mark@1,2",
+      "playerId": "P2",
+      "visits": 3,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P2|mark|2,1",
+          "text": "mark -> C2",
+          "visits": 3,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 3,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,0;P1:mark@1,0;P1:mark@1,1;P1:mark@2,1;P2:mark@0,1;P2:mark@1,2;P2:mark@2,0;P2:mark@2,2",
+      "playerId": "P1",
+      "visits": 3,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P1|mark|0,2",
+          "text": "mark -> A3",
+          "visits": 3,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 3,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,2;P1:mark@1,1;P1:mark@2,2;P2:mark@0,0;P2:mark@2,0",
+      "playerId": "P2",
+      "visits": 3,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P2|mark|1,0",
+          "text": "mark -> B1",
+          "visits": 3,
+          "meanScore": 1,
+          "wins": 3,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,1;P1:mark@0,2;P1:mark@1,0;P1:mark@1,1;P2:mark@0,0;P2:mark@1,2;P2:mark@2,2",
+      "playerId": "P2",
+      "visits": 3,
+      "averageValue": -1,
+      "actions": [
+        {
+          "key": "place|P2|mark|2,1",
+          "text": "mark -> C2",
+          "visits": 3,
+          "meanScore": -1,
+          "wins": 0,
+          "draws": 0,
+          "losses": 3
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,0;P1:mark@0,2;P1:mark@1,0;P1:mark@2,1;P2:mark@0,1;P2:mark@1,1;P2:mark@2,0",
+      "playerId": "P2",
+      "visits": 3,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P2|mark|1,2",
+          "text": "mark -> B3",
+          "visits": 3,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 3,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,1;P1:mark@1,0;P1:mark@1,1;P2:mark@0,0;P2:mark@0,2;P2:mark@2,2",
+      "playerId": "P1",
+      "visits": 3,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P1|mark|2,1",
+          "text": "mark -> C2",
+          "visits": 3,
+          "meanScore": 1,
+          "wins": 3,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,0;P1:mark@0,1;P1:mark@2,0;P1:mark@2,2;P2:mark@1,0;P2:mark@1,1;P2:mark@2,1",
+      "playerId": "P2",
+      "visits": 3,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P2|mark|1,2",
+          "text": "mark -> B3",
+          "visits": 3,
+          "meanScore": 1,
+          "wins": 3,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@1,0;P1:mark@1,1;P1:mark@2,1;P2:mark@0,0;P2:mark@0,2;P2:mark@1,2",
+      "playerId": "P1",
+      "visits": 2,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P1|mark|0,1",
+          "text": "mark -> A2",
+          "visits": 2,
+          "meanScore": 1,
+          "wins": 2,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,1;P1:mark@0,2;P1:mark@1,0;P1:mark@1,1;P2:mark@1,2;P2:mark@2,0;P2:mark@2,1",
+      "playerId": "P2",
+      "visits": 2,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P2|mark|2,2",
+          "text": "mark -> C3",
+          "visits": 2,
+          "meanScore": 1,
+          "wins": 2,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,2;P1:mark@1,1;P1:mark@1,2;P2:mark@0,0;P2:mark@2,0",
+      "playerId": "P2",
+      "visits": 2,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P2|mark|1,0",
+          "text": "mark -> B1",
+          "visits": 2,
+          "meanScore": 1,
+          "wins": 2,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@1,1;P1:mark@1,2;P1:mark@2,0;P1:mark@2,2;P2:mark@0,0;P2:mark@0,2;P2:mark@1,0",
+      "playerId": "P2",
+      "visits": 2,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P2|mark|0,1",
+          "text": "mark -> A2",
+          "visits": 2,
+          "meanScore": 1,
+          "wins": 2,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@1,0;P1:mark@1,1;P1:mark@2,1;P2:mark@0,0;P2:mark@0,1",
+      "playerId": "P2",
+      "visits": 2,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P2|mark|0,2",
+          "text": "mark -> A3",
+          "visits": 2,
+          "meanScore": 1,
+          "wins": 2,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@1,0;P1:mark@1,1;P2:mark@0,1",
+      "playerId": "P2",
+      "visits": 2,
+      "averageValue": -1,
+      "actions": [
+        {
+          "key": "place|P2|mark|2,1",
+          "text": "mark -> C2",
+          "visits": 2,
+          "meanScore": -1,
+          "wins": 0,
+          "draws": 0,
+          "losses": 2
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@1,0;P1:mark@1,1;P2:mark@0,1;P2:mark@2,1",
+      "playerId": "P1",
+      "visits": 2,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P1|mark|1,2",
+          "text": "mark -> B3",
+          "visits": 2,
+          "meanScore": 1,
+          "wins": 2,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,2;P1:mark@1,2;P1:mark@2,0;P1:mark@2,1;P2:mark@1,0;P2:mark@1,1;P2:mark@2,2",
+      "playerId": "P2",
+      "visits": 2,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P2|mark|0,0",
+          "text": "mark -> A1",
+          "visits": 2,
+          "meanScore": 1,
+          "wins": 2,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,0;P1:mark@0,2;P1:mark@2,0;P1:mark@2,1;P2:mark@0,1;P2:mark@1,0;P2:mark@1,1",
+      "playerId": "P2",
+      "visits": 2,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P2|mark|1,2",
+          "text": "mark -> B3",
+          "visits": 2,
+          "meanScore": 1,
+          "wins": 2,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,2;P1:mark@1,2;P2:mark@1,1",
+      "playerId": "P2",
+      "visits": 2,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P2|mark|2,2",
+          "text": "mark -> C3",
+          "visits": 2,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 2,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,2;P1:mark@1,2;P2:mark@1,1;P2:mark@2,2",
+      "playerId": "P1",
+      "visits": 2,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P1|mark|0,0",
+          "text": "mark -> A1",
+          "visits": 2,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 2,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,0;P1:mark@0,2;P1:mark@1,2;P2:mark@1,1;P2:mark@2,2",
+      "playerId": "P2",
+      "visits": 2,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P2|mark|0,1",
+          "text": "mark -> A2",
+          "visits": 2,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 2,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,0;P1:mark@0,2;P1:mark@1,2;P2:mark@0,1;P2:mark@1,1;P2:mark@2,2",
+      "playerId": "P1",
+      "visits": 2,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P1|mark|2,1",
+          "text": "mark -> C2",
+          "visits": 2,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 2,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,0;P1:mark@0,2;P1:mark@1,2;P1:mark@2,1;P2:mark@0,1;P2:mark@1,1;P2:mark@2,2",
+      "playerId": "P2",
+      "visits": 2,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P2|mark|1,0",
+          "text": "mark -> B1",
+          "visits": 2,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 2,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,1;P1:mark@1,2;P1:mark@2,0;P1:mark@2,2;P2:mark@0,0;P2:mark@0,2;P2:mark@1,0;P2:mark@1,1",
+      "playerId": "P1",
+      "visits": 2,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P1|mark|2,1",
+          "text": "mark -> C2",
+          "visits": 2,
+          "meanScore": 1,
+          "wins": 2,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,2;P1:mark@1,0;P1:mark@1,1;P2:mark@0,0;P2:mark@2,2",
+      "playerId": "P2",
+      "visits": 2,
+      "averageValue": -1,
+      "actions": [
+        {
+          "key": "place|P2|mark|0,1",
+          "text": "mark -> A2",
+          "visits": 2,
+          "meanScore": -1,
+          "wins": 0,
+          "draws": 0,
+          "losses": 2
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,2;P1:mark@1,0;P1:mark@1,1;P2:mark@0,0;P2:mark@0,1;P2:mark@2,2",
+      "playerId": "P1",
+      "visits": 2,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P1|mark|2,1",
+          "text": "mark -> C2",
+          "visits": 2,
+          "meanScore": 1,
+          "wins": 2,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,2;P1:mark@1,0;P1:mark@1,1;P1:mark@2,1;P2:mark@0,0;P2:mark@0,1;P2:mark@2,2",
+      "playerId": "P2",
+      "visits": 2,
+      "averageValue": -1,
+      "actions": [
+        {
+          "key": "place|P2|mark|1,2",
+          "text": "mark -> B3",
+          "visits": 2,
+          "meanScore": -1,
+          "wins": 0,
+          "draws": 0,
+          "losses": 2
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@1,2;P1:mark@2,1;P2:mark@1,1",
+      "playerId": "P2",
+      "visits": 2,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P2|mark|2,2",
+          "text": "mark -> C3",
+          "visits": 2,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 2,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@1,2;P1:mark@2,1;P2:mark@1,1;P2:mark@2,2",
+      "playerId": "P1",
+      "visits": 2,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P1|mark|0,0",
+          "text": "mark -> A1",
+          "visits": 2,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 2,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,0;P1:mark@1,2;P1:mark@2,1;P2:mark@1,1;P2:mark@2,2",
+      "playerId": "P2",
+      "visits": 2,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P2|mark|1,0",
+          "text": "mark -> B1",
+          "visits": 2,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 2,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,0;P1:mark@1,2;P1:mark@2,1;P2:mark@1,0;P2:mark@1,1;P2:mark@2,2",
+      "playerId": "P1",
+      "visits": 2,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P1|mark|0,1",
+          "text": "mark -> A2",
+          "visits": 2,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 2,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,0;P1:mark@0,1;P1:mark@1,2;P1:mark@2,1;P2:mark@1,0;P2:mark@1,1;P2:mark@2,2",
+      "playerId": "P2",
+      "visits": 2,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P2|mark|0,2",
+          "text": "mark -> A3",
+          "visits": 2,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 2,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,0;P1:mark@0,1;P1:mark@1,2;P1:mark@2,1;P2:mark@0,2;P2:mark@1,0;P2:mark@1,1;P2:mark@2,2",
+      "playerId": "P1",
+      "visits": 2,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P1|mark|2,0",
+          "text": "mark -> C1",
+          "visits": 2,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 2,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,0;P2:mark@0,1",
+      "playerId": "P1",
+      "visits": 2,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P1|mark|2,0",
+          "text": "mark -> C1",
+          "visits": 2,
+          "meanScore": 1,
+          "wins": 2,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,0;P1:mark@2,0;P2:mark@0,1",
+      "playerId": "P2",
+      "visits": 2,
+      "averageValue": -1,
+      "actions": [
+        {
+          "key": "place|P2|mark|1,1",
+          "text": "mark -> B2",
+          "visits": 2,
+          "meanScore": -1,
+          "wins": 0,
+          "draws": 0,
+          "losses": 2
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,0;P1:mark@2,0;P1:mark@2,1;P2:mark@1,0;P2:mark@1,1",
+      "playerId": "P2",
+      "visits": 2,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P2|mark|1,2",
+          "text": "mark -> B3",
+          "visits": 2,
+          "meanScore": 1,
+          "wins": 2,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,0;P1:mark@1,2;P1:mark@2,0;P2:mark@0,1;P2:mark@1,1",
+      "playerId": "P2",
+      "visits": 2,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P2|mark|2,1",
+          "text": "mark -> C2",
+          "visits": 2,
+          "meanScore": 1,
+          "wins": 2,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@1,1;P1:mark@2,0;P1:mark@2,1;P2:mark@0,1;P2:mark@2,2",
+      "playerId": "P2",
+      "visits": 2,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P2|mark|0,2",
+          "text": "mark -> A3",
+          "visits": 2,
+          "meanScore": 1,
+          "wins": 2,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@1,1;P1:mark@2,0;P1:mark@2,1;P2:mark@0,1;P2:mark@0,2;P2:mark@2,2",
+      "playerId": "P1",
+      "visits": 2,
+      "averageValue": -1,
+      "actions": [
+        {
+          "key": "place|P1|mark|1,0",
+          "text": "mark -> B1",
+          "visits": 2,
+          "meanScore": -1,
+          "wins": 0,
+          "draws": 0,
+          "losses": 2
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@1,0;P1:mark@1,1;P1:mark@2,0;P1:mark@2,1;P2:mark@0,1;P2:mark@0,2;P2:mark@2,2",
+      "playerId": "P2",
+      "visits": 2,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P2|mark|1,2",
+          "text": "mark -> B3",
+          "visits": 2,
+          "meanScore": 1,
+          "wins": 2,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,2;P1:mark@1,0;P1:mark@1,1;P2:mark@0,0;P2:mark@0,1;P2:mark@2,1",
+      "playerId": "P1",
+      "visits": 2,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P1|mark|1,2",
+          "text": "mark -> B3",
+          "visits": 2,
+          "meanScore": 1,
+          "wins": 2,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@1,0;P1:mark@1,1;P1:mark@2,2;P2:mark@0,0;P2:mark@0,1",
+      "playerId": "P2",
+      "visits": 2,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P2|mark|0,2",
+          "text": "mark -> A3",
+          "visits": 2,
+          "meanScore": 1,
+          "wins": 2,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,0;P1:mark@1,0;P1:mark@1,2;P1:mark@2,1;P2:mark@0,1;P2:mark@1,1;P2:mark@2,0;P2:mark@2,2",
+      "playerId": "P1",
+      "visits": 2,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P1|mark|0,2",
+          "text": "mark -> A3",
+          "visits": 2,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 2,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,1;P1:mark@1,1;P1:mark@2,2;P2:mark@0,2;P2:mark@2,1",
+      "playerId": "P2",
+      "visits": 2,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P2|mark|0,0",
+          "text": "mark -> A1",
+          "visits": 2,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 2,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,1;P1:mark@1,1;P1:mark@2,2;P2:mark@0,0;P2:mark@0,2;P2:mark@2,1",
+      "playerId": "P1",
+      "visits": 2,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P1|mark|1,0",
+          "text": "mark -> B1",
+          "visits": 2,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 2,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,1;P1:mark@1,0;P1:mark@1,1;P1:mark@2,2;P2:mark@0,0;P2:mark@0,2;P2:mark@2,1",
+      "playerId": "P2",
+      "visits": 2,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P2|mark|1,2",
+          "text": "mark -> B3",
+          "visits": 2,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 2,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,0;P1:mark@1,1;P2:mark@2,0;P2:mark@2,2",
+      "playerId": "P1",
+      "visits": 2,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P1|mark|2,1",
+          "text": "mark -> C2",
+          "visits": 2,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 2,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,0;P1:mark@1,1;P1:mark@2,1;P2:mark@2,0;P2:mark@2,2",
+      "playerId": "P2",
+      "visits": 2,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P2|mark|0,1",
+          "text": "mark -> A2",
+          "visits": 2,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 2,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,0;P1:mark@1,1;P1:mark@2,1;P2:mark@0,1;P2:mark@2,0;P2:mark@2,2",
+      "playerId": "P1",
+      "visits": 2,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P1|mark|1,0",
+          "text": "mark -> B1",
+          "visits": 2,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 2,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,0;P1:mark@1,0;P1:mark@1,1;P1:mark@2,1;P2:mark@0,1;P2:mark@2,0;P2:mark@2,2",
+      "playerId": "P2",
+      "visits": 2,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P2|mark|1,2",
+          "text": "mark -> B3",
+          "visits": 2,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 2,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,2;P1:mark@1,0;P1:mark@1,1;P2:mark@0,0;P2:mark@2,0;P2:mark@2,2",
+      "playerId": "P1",
+      "visits": 2,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P1|mark|2,1",
+          "text": "mark -> C2",
+          "visits": 2,
+          "meanScore": 1,
+          "wins": 2,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,2;P1:mark@1,0;P1:mark@1,1;P1:mark@2,1;P2:mark@0,0;P2:mark@2,0;P2:mark@2,2",
+      "playerId": "P2",
+      "visits": 2,
+      "averageValue": -1,
+      "actions": [
+        {
+          "key": "place|P2|mark|0,1",
+          "text": "mark -> A2",
+          "visits": 2,
+          "meanScore": -1,
+          "wins": 0,
+          "draws": 0,
+          "losses": 2
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,1;P1:mark@1,1;P1:mark@1,2;P2:mark@0,0;P2:mark@1,0",
+      "playerId": "P2",
+      "visits": 2,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P2|mark|2,0",
+          "text": "mark -> C1",
+          "visits": 2,
+          "meanScore": 1,
+          "wins": 2,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@1,2;P1:mark@2,0;P2:mark@1,1",
+      "playerId": "P2",
+      "visits": 2,
+      "averageValue": 0.5,
+      "actions": [
+        {
+          "key": "place|P2|mark|0,1",
+          "text": "mark -> A2",
+          "visits": 2,
+          "meanScore": 0.5,
+          "wins": 1,
+          "draws": 1,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,1;P1:mark@1,0;P1:mark@1,1;P1:mark@2,2;P2:mark@0,2;P2:mark@1,2;P2:mark@2,0;P2:mark@2,1",
+      "playerId": "P1",
+      "visits": 2,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P1|mark|0,0",
+          "text": "mark -> A1",
+          "visits": 2,
+          "meanScore": 1,
+          "wins": 2,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,0;P1:mark@1,2;P1:mark@2,0;P2:mark@1,0;P2:mark@1,1;P2:mark@2,2",
+      "playerId": "P1",
+      "visits": 2,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P1|mark|0,1",
+          "text": "mark -> A2",
+          "visits": 2,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 2,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,0;P1:mark@0,1;P1:mark@1,2;P1:mark@2,0;P2:mark@1,0;P2:mark@1,1;P2:mark@2,2",
+      "playerId": "P2",
+      "visits": 2,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P2|mark|0,2",
+          "text": "mark -> A3",
+          "visits": 2,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 2,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,0;P1:mark@0,1;P1:mark@1,2;P1:mark@2,0;P2:mark@0,2;P2:mark@1,0;P2:mark@1,1;P2:mark@2,2",
+      "playerId": "P1",
+      "visits": 2,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P1|mark|2,1",
+          "text": "mark -> C2",
+          "visits": 2,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 2,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,1;P1:mark@1,1;P2:mark@1,0",
+      "playerId": "P2",
+      "visits": 2,
+      "averageValue": -1,
+      "actions": [
+        {
+          "key": "place|P2|mark|2,1",
+          "text": "mark -> C2",
+          "visits": 2,
+          "meanScore": -1,
+          "wins": 0,
+          "draws": 0,
+          "losses": 2
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,1;P1:mark@1,1;P2:mark@1,0;P2:mark@2,1",
+      "playerId": "P1",
+      "visits": 2,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P1|mark|0,0",
+          "text": "mark -> A1",
+          "visits": 2,
+          "meanScore": 1,
+          "wins": 2,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,2;P1:mark@2,1;P1:mark@2,2;P2:mark@0,1;P2:mark@1,1",
+      "playerId": "P2",
+      "visits": 2,
+      "averageValue": -1,
+      "actions": [
+        {
+          "key": "place|P2|mark|1,0",
+          "text": "mark -> B1",
+          "visits": 2,
+          "meanScore": -1,
+          "wins": 0,
+          "draws": 0,
+          "losses": 2
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,2;P1:mark@2,1;P1:mark@2,2;P2:mark@0,1;P2:mark@1,0;P2:mark@1,1",
+      "playerId": "P1",
+      "visits": 2,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P1|mark|1,2",
+          "text": "mark -> B3",
+          "visits": 2,
+          "meanScore": 1,
+          "wins": 2,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@1,1;P1:mark@2,1;P1:mark@2,2;P2:mark@0,0;P2:mark@2,0",
+      "playerId": "P2",
+      "visits": 2,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P2|mark|1,0",
+          "text": "mark -> B1",
+          "visits": 2,
+          "meanScore": 1,
+          "wins": 2,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@1,1;P1:mark@2,0;P2:mark@0,1;P2:mark@0,2",
+      "playerId": "P1",
+      "visits": 2,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P1|mark|0,0",
+          "text": "mark -> A1",
+          "visits": 2,
+          "meanScore": 1,
+          "wins": 2,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,0;P1:mark@1,1;P1:mark@2,0;P2:mark@0,1;P2:mark@0,2",
+      "playerId": "P2",
+      "visits": 2,
+      "averageValue": -1,
+      "actions": [
+        {
+          "key": "place|P2|mark|1,0",
+          "text": "mark -> B1",
+          "visits": 2,
+          "meanScore": -1,
+          "wins": 0,
+          "draws": 0,
+          "losses": 2
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,0;P1:mark@1,1;P1:mark@2,0;P2:mark@0,1;P2:mark@0,2;P2:mark@1,0",
+      "playerId": "P1",
+      "visits": 2,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P1|mark|2,2",
+          "text": "mark -> C3",
+          "visits": 2,
+          "meanScore": 1,
+          "wins": 2,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,2;P1:mark@1,1;P2:mark@1,0;P2:mark@2,1",
+      "playerId": "P1",
+      "visits": 2,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P1|mark|0,1",
+          "text": "mark -> A2",
+          "visits": 2,
+          "meanScore": 1,
+          "wins": 2,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,1;P1:mark@0,2;P1:mark@1,1;P2:mark@1,0;P2:mark@2,1",
+      "playerId": "P2",
+      "visits": 2,
+      "averageValue": -1,
+      "actions": [
+        {
+          "key": "place|P2|mark|1,2",
+          "text": "mark -> B3",
+          "visits": 2,
+          "meanScore": -1,
+          "wins": 0,
+          "draws": 0,
+          "losses": 2
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,1;P1:mark@0,2;P1:mark@1,1;P2:mark@1,0;P2:mark@1,2;P2:mark@2,1",
+      "playerId": "P1",
+      "visits": 2,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P1|mark|0,0",
+          "text": "mark -> A1",
+          "visits": 2,
+          "meanScore": 1,
+          "wins": 2,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,1;P1:mark@1,0;P1:mark@2,0;P1:mark@2,2;P2:mark@0,0;P2:mark@1,1;P2:mark@1,2;P2:mark@2,1",
+      "playerId": "P1",
+      "visits": 2,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P1|mark|0,2",
+          "text": "mark -> A3",
+          "visits": 2,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 2,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,1;P1:mark@1,1;P1:mark@2,2;P2:mark@0,0;P2:mark@2,0",
+      "playerId": "P2",
+      "visits": 2,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P2|mark|1,0",
+          "text": "mark -> B1",
+          "visits": 2,
+          "meanScore": 1,
+          "wins": 2,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@1,0;P1:mark@1,1;P1:mark@2,2;P2:mark@0,0;P2:mark@1,2;P2:mark@2,1",
+      "playerId": "P1",
+      "visits": 2,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P1|mark|0,1",
+          "text": "mark -> A2",
+          "visits": 2,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 2,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,0;P1:mark@1,1;P2:mark@1,2;P2:mark@2,1",
+      "playerId": "P1",
+      "visits": 2,
+      "averageValue": 1,
+      "actions": [
+        {
+          "key": "place|P1|mark|1,0",
+          "text": "mark -> B1",
+          "visits": 2,
+          "meanScore": 1,
+          "wins": 2,
+          "draws": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,0;P1:mark@1,0;P1:mark@1,1;P2:mark@1,2;P2:mark@2,1",
+      "playerId": "P2",
+      "visits": 2,
+      "averageValue": -1,
+      "actions": [
+        {
+          "key": "place|P2|mark|0,1",
+          "text": "mark -> A2",
+          "visits": 2,
+          "meanScore": -1,
+          "wins": 0,
+          "draws": 0,
+          "losses": 2
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,1;P1:mark@1,1;P1:mark@2,0;P2:mark@0,2;P2:mark@1,0;P2:mark@2,1",
+      "playerId": "P1",
+      "visits": 2,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P1|mark|1,2",
+          "text": "mark -> B3",
+          "visits": 2,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 2,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P2|P1:mark@0,1;P1:mark@1,1;P1:mark@1,2;P1:mark@2,0;P2:mark@0,2;P2:mark@1,0;P2:mark@2,1",
+      "playerId": "P2",
+      "visits": 2,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P2|mark|0,0",
+          "text": "mark -> A1",
+          "visits": 2,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 2,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "stateKey": "P1|P1:mark@0,0;P1:mark@0,2;P1:mark@2,1;P2:mark@0,1;P2:mark@1,1;P2:mark@2,0",
+      "playerId": "P1",
+      "visits": 2,
+      "averageValue": 0,
+      "actions": [
+        {
+          "key": "place|P1|mark|1,0",
+          "text": "mark -> B1",
+          "visits": 2,
+          "meanScore": 0,
+          "wins": 0,
+          "draws": 2,
+          "losses": 0
+        }
+      ]
+    }
+  ]
+}

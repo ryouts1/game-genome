@@ -1,0 +1,139 @@
+[
+  {
+    "id": "connect-four",
+    "name": "Connect Four",
+    "path": "./games/connect-four.json",
+    "summary": "重力付き配置ゲーム。列クリックで着地し、同じ UI でも別ルールに変わる例です。",
+    "engineHighlights": [
+      "gravity 制約を JSON だけで追加",
+      "列ごとの合法手削減と line 判定を同時に確認できる",
+      "MCTS のバッチ対局で先手有利を検証しやすい"
+    ],
+    "categories": [
+      "placement",
+      "gravity",
+      "connection"
+    ],
+    "complexity": "entry+",
+    "authoringFocus": "gravity 制約の確認",
+    "recommendedControllers": [
+      "mcts",
+      "genome",
+      "minimax"
+    ]
+  },
+  {
+    "id": "knight-skirmish",
+    "name": "Knight Skirmish",
+    "path": "./games/knight-skirmish.json",
+    "summary": "ナイト移動だけで戦うジャンプ駒ゲーム。step の非隣接移動例として使えます。",
+    "engineHighlights": [
+      "step ベースでナイト系ジャンプを表現",
+      "配置を使わない完全移動型ルールのサンプル",
+      "Arena で AI 同士の機動力差を比較しやすい"
+    ],
+    "categories": [
+      "movement",
+      "jump",
+      "capture"
+    ],
+    "complexity": "mid",
+    "authoringFocus": "step ベースの飛び越し",
+    "recommendedControllers": [
+      "minimax",
+      "genome",
+      "random"
+    ]
+  },
+  {
+    "id": "lane-breakthrough",
+    "name": "Lane Breakthrough",
+    "path": "./games/lane-breakthrough.json",
+    "summary": "前進・斜め捕獲・到達勝利を持つ駒移動ゲーム。将棋系派生の前段として使えます。",
+    "engineHighlights": [
+      "forward ベクトルで先手後手の向きを吸収",
+      "reach-row / capture-all / no-legal-moves の複合終局判定",
+      "進軍度を評価関数に混ぜた小型ゲーム"
+    ],
+    "categories": [
+      "movement",
+      "race",
+      "capture"
+    ],
+    "complexity": "mid",
+    "authoringFocus": "forward / reach-row の確認",
+    "recommendedControllers": [
+      "minimax",
+      "mcts",
+      "genome"
+    ]
+  },
+  {
+    "id": "relay-outpost",
+    "name": "Relay Outpost",
+    "path": "./games/relay-outpost.json",
+    "summary": "配置と移動を毎手で選べる混成ルール。Beacon の 3 連結と Runner の突破を同時に狙います。",
+    "engineHighlights": [
+      "place と move-piece を同一ターン候補として並べる例",
+      "inventory と row-zone を組み合わせた配置制約",
+      "line / reach-row / capture-all が同時に存在する複合終局"
+    ],
+    "categories": [
+      "hybrid",
+      "placement",
+      "movement"
+    ],
+    "complexity": "mid+",
+    "authoringFocus": "配置と移動の混在",
+    "recommendedControllers": [
+      "minimax",
+      "mcts",
+      "genome"
+    ]
+  },
+  {
+    "id": "royal-duel",
+    "name": "Royal Duel",
+    "path": "./games/royal-duel.json",
+    "summary": "King / Rook / Bishop の最小対局。ray 移動と王駒捕獲を 1 つの JSON にまとめています。",
+    "engineHighlights": [
+      "step と ray の混在した move-piece ルール",
+      "capture-all(king) で王駒捕獲型の終局を表現",
+      "チェス系・将棋系の派生 repo を考えるときの土台になる"
+    ],
+    "categories": [
+      "movement",
+      "ray",
+      "duel"
+    ],
+    "complexity": "mid+",
+    "authoringFocus": "step + ray の混在",
+    "recommendedControllers": [
+      "minimax",
+      "mcts",
+      "genome"
+    ]
+  },
+  {
+    "id": "tic-tac-toe",
+    "name": "Tic Tac Toe",
+    "path": "./games/tic-tac-toe.json",
+    "summary": "もっとも小さい JSON 定義例。配置アクションと line 勝利条件だけで完結します。",
+    "engineHighlights": [
+      "place と line だけで成立する最小構成",
+      "定義エディタの入り口として扱いやすい",
+      "Minimax の即詰み検証にも向いている"
+    ],
+    "categories": [
+      "placement",
+      "line"
+    ],
+    "complexity": "entry",
+    "authoringFocus": "最小の place / line 例",
+    "recommendedControllers": [
+      "minimax",
+      "genome",
+      "human"
+    ]
+  }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "gameId": "tic-tac-toe",
+    "path": "./artifacts/learning/tic-tac-toe.book.json",
+    "sourceLabel": "max multi-seed bundle",
+    "teacherController": "minimax",
+    "episodes": 1800,
+    "states": 259,
+    "decisionSamples": 14931,
+    "generatedAt": "2026-04-05T11:03:37.588Z"
+  },
+  {
+    "gameId": "connect-four",
+    "path": "./artifacts/learning/connect-four.book.json",
+    "sourceLabel": "max multi-seed bundle",
+    "teacherController": "minimax",
+    "episodes": 75,
+    "states": 1537,
+    "decisionSamples": 1954,
+    "generatedAt": "2026-04-05T11:04:56.599Z"
+  },
+  {
+    "gameId": "lane-breakthrough",
+    "path": "./artifacts/learning/lane-breakthrough.book.json",
+    "sourceLabel": "max multi-seed bundle",
+    "teacherController": "minimax",
+    "episodes": 1200,
+    "states": 1281,
+    "decisionSamples": 19003,
+    "generatedAt": "2026-04-05T11:06:37.901Z"
+  },
+  {
+    "gameId": "knight-skirmish",
+    "path": "./artifacts/learning/knight-skirmish.book.json",
+    "sourceLabel": "max multi-seed bundle",
+    "teacherController": "minimax",
+    "episodes": 360,
+    "states": 1260,
+    "decisionSamples": 11043,
+    "generatedAt": "2026-04-05T11:10:28.976Z"
+  },
+  {
+    "gameId": "royal-duel",
+    "path": "./artifacts/learning/royal-duel.book.json",
+    "sourceLabel": "max multi-seed bundle",
+    "teacherController": "minimax",
+    "episodes": 750,
+    "states": 2258,
+    "decisionSamples": 9295,
+    "generatedAt": "2026-04-05T11:12:53.581Z"
+  },
+  {
+    "gameId": "relay-outpost",
+    "path": "./artifacts/learning/relay-outpost.book.json",
+    "sourceLabel": "max multi-seed bundle",
+    "teacherController": "minimax",
+    "episodes": 300,
+    "states": 2042,
+    "decisionSamples": 5071,
+    "generatedAt": "2026-04-05T11:14:29.899Z"
+  }
+]

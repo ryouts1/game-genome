@@ -1,0 +1,23 @@
+{
+  "name": "game-genome",
+  "version": "2.4.0",
+  "private": true,
+  "type": "module",
+  "description": "JSON-defined board game framework with shared UI, rule engine, hybrid learned AI, authoring studio, and arena runner.",
+  "scripts": {
+    "start": "node scripts/dev-server.js",
+    "test": "node --test",
+    "validate:games": "node scripts/validate-game.js",
+    "validate:learning": "node scripts/validate-learning.js",
+    "scaffold:game": "node scripts/scaffold-game.js",
+    "train:self-play": "node scripts/train-self-play.js",
+    "train:bundle": "node scripts/train-learning-bundle.js",
+    "catalog:report": "node scripts/generate-catalog-report.js",
+    "training:report": "node scripts/generate-training-report.js",
+    "check": "node scripts/validate-game.js && node scripts/validate-learning.js && node --test && node scripts/generate-catalog-report.js && node scripts/generate-training-report.js",
+    "train:bundle:max": "node scripts/train-learning-max.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "id": "relay-outpost",
+  "name": "Relay Outpost",
+  "description": "配置と移動を同じターン候補として持つ混成ルール。Beacon を置いて 3 連結を狙うか、Runner を前進させて突破を狙うかを毎手で選びます。",
+  "board": {
+    "width": 5,
+    "height": 5
+  },
+  "players": [
+    {
+      "id": "P1",
+      "name": "先手",
+      "forward": 1
+    },
+    {
+      "id": "P2",
+      "name": "後手",
+      "forward": -1
+    }
+  ],
+  "turnOrder": ["P1", "P2"],
+  "pieceKinds": {
+    "runner": {
+      "label": "Runner",
+      "shortLabel": "Runner",
+      "symbolByPlayer": {
+        "P1": "▲",
+        "P2": "▼"
+      },
+      "movement": [
+        {
+          "type": "step",
+          "mode": "move-or-capture",
+          "vectors": [[1, 0], [-1, 0], [0, 1], [0, -1]]
+        }
+      ],
+      "evaluation": {
+        "value": 6
+      }
+    },
+    "beacon": {
+      "label": "Beacon",
+      "shortLabel": "Beacon",
+      "symbolByPlayer": {
+        "P1": "●",
+        "P2": "○"
+      },
+      "movement": [],
+      "evaluation": {
+        "value": 1
+      }
+    }
+  },
+  "actionCatalog": [
+    {
+      "type": "place",
+      "pieceKind": "beacon",
+      "constraints": [
+        { "type": "empty" },
+        {
+          "type": "row-zone",
+          "rowsByPlayer": {
+            "P1": [0, 1, 2],
+            "P2": [2, 3, 4]
+          }
+        }
+      ],
+      "inventory": {
+        "byPlayer": {
+          "P1": 3,
+          "P2": 3
+        }
+      }
+    },
+    {
+      "type": "move-piece",
+      "pieceKinds": ["runner"]
+    }
+  ],
+  "initialState": {
+    "pieces": [
+      { "kind": "runner", "owner": "P1", "x": 2, "y": 0 },
+      { "kind": "runner", "owner": "P2", "x": 2, "y": 4 }
+    ]
+  },
+  "termination": {
+    "winConditions": [
+      {
+        "type": "line",
+        "label": "自分の beacon を 3 つ並べる",
+        "pieceKind": "beacon",
+        "length": 3,
+        "directions": "orthogonal+diagonal"
+      },
+      {
+        "type": "reach-row",
+        "label": "Runner を相手陣の最終列へ通す",
+        "pieceKind": "runner",
+        "targetRowByPlayer": {
+          "P1": 4,
+          "P2": 0
+        }
+      },
+      {
+        "type": "capture-all",
+        "label": "相手の runner を取る",
+        "pieceKind": "runner"
+      }
+    ],
+    "drawConditions": [
+      {
+        "type": "move-limit",
+        "label": "60 手で打ち切り",
+        "maxMoves": 60
+      }
+    ]
+  },
+  "evaluation": {
+    "weights": {
+      "material": 0.8,
+      "mobility": 0.22,
+      "centerControl": 0.12,
+      "advancement": 0.4,
+      "linePotential": 2.4
+    }
+  }
+}
